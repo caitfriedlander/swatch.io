@@ -5,11 +5,11 @@
     margin: 0 auto;
 }
 .LandingButtons > .NavBar-link {
-    background-color: salmon;
+    background-color:var(--primary-bg);
     padding: 15px;
     border-radius: 5px;
     text-decoration: none;
     text-align: center;
     width:150px;
-    color: #dddeda;
+    color: var(--primary-text);
 }

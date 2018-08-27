@@ -8,12 +8,17 @@ const HomePage = (props) => {
 
     return(
         <div className="HomePage">
-            <RibbonHeader />
-            <h1>SWATCH.IO HOME PAGE</h1>
             <NavBar 
                 user={props.user}
                 handleLogout={props.handleLogout}
             />
+            <h1>SWATCH.IO HOME PAGE</h1>
+            <h2>SWATCHES (0)</h2>
+            <p>Swatch gallery</p>
+            <Link to='/swatches'>SEE ALL</Link>
+            <hr />
+            <h2>PROJECTS (0)</h2>
+            <p>Project list</p>
         </div>
     );
 }

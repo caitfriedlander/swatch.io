@@ -6,6 +6,8 @@ const NavBar = (props) => {
 
   let nav = props.user ?
     <div>
+      <Link to='/' className='NavBar-link' >HOME</Link>
+      &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
       <Link to='/swatches' className='NavBar-link' >SWATCHES</Link>
       &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
       <Link to='/newswatch' className='NavBar-link' >NEW SWATCH</Link>

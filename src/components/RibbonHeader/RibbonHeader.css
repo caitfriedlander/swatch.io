@@ -7,10 +7,10 @@ body {
   .RibbonHeader {
     padding: 15px;
     height: 100px;
-    background: salmon;
+    background: var(--primary-bg);
     clip-path: polygon(100% 0, 95% 50%, 100% 100%, 0% 100%, 5% 50%, 0% 0%);
     font-family: "font_condensed";
-    color: #dddeda;
+    color: var(--primary-text);
     letter-spacing: 0.18em;
     font-size: 20px;
     display: flex;
@@ -18,8 +18,8 @@ body {
     align-items: center;
     width: 100%;
     max-width: 80vw;
-    border-bottom: 1px dashed white;
-    border-top: 1px dashed white;
+    border-bottom: 1px dashed var(--primary-text);
+    border-top: 1px dashed var(--primary-text);
     margin: 0 auto;
   }
 
