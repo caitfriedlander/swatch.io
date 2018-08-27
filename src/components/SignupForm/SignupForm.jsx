@@ -42,7 +42,7 @@ class SignupForm extends Component {
     return (
       <React.Fragment>
         <header className="SignupForm-Headder">
-          <h1>Sign Up</h1>
+          <h1>Welcome to Swatch.io!</h1>
         </header>
         <div className="SignupForm">
           <form className="SignupForm-Form" onSubmit={this.handleSubmit} >
