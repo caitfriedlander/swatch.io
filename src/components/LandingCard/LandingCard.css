@@ -1,0 +1,20 @@
+.LandingCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    width: 80vw;
+    max-width: 80vw;
+    background-color: salmon;
+    margin: 0 auto;
+}
+
+.LandingCard > p {
+    text-align: center;
+}
+
+.LandingCard > h3 {
+    text-align: center;
+    color: #dddeda;
+}

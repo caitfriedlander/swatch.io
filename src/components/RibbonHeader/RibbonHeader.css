@@ -4,13 +4,12 @@ body {
     justify-content: center;
     align-items: center;
   }
-  .Ribbon {
+  .RibbonHeader {
     padding: 15px;
-    height: 50px;
-    background: #1a1c18;
+    height: 100px;
+    background: salmon;
     clip-path: polygon(100% 0, 95% 50%, 100% 100%, 0% 100%, 5% 50%, 0% 0%);
     font-family: "font_condensed";
-    text-transform: uppercase;
     color: #dddeda;
     letter-spacing: 0.18em;
     font-size: 20px;
@@ -21,8 +20,9 @@ body {
     max-width: 80vw;
     border-bottom: 1px dashed white;
     border-top: 1px dashed white;
+    margin: 0 auto;
   }
 
- .Ribbon > span > h1 {
+ .Ribbon > h1 {
       text-align: center;
   }
