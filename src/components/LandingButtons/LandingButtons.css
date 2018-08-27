@@ -1,5 +1,8 @@
 .LandingButtons {
     display: flex;
+    width: 80vw;
+    justify-content: space-between;
+    margin: 0 auto;
 }
 .LandingButtons > .NavBar-link {
     background-color: salmon;
@@ -8,6 +11,5 @@
     text-decoration: none;
     text-align: center;
     width:150px;
-    margin: 0 10px;
     color: #dddeda;
 }

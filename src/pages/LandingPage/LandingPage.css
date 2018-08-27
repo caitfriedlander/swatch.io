@@ -1,7 +1,11 @@
 .LandingPage {
     height: 100vh;
+    width: 100vw;
     display: flex;
     justify-content:space-evenly;
     flex-direction: column;
     margin-top: -20px;
+    background-image: url('./LandingBG.jpg');
+    background-repeat: no-repeat;
+    background-size: 100vh;
 }
