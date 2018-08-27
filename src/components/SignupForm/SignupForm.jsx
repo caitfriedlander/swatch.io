@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import userService from '../../utils/userService';
+import './SignupForm.css';
 
 class SignupForm extends Component {
   constructor(props) {
@@ -39,37 +40,33 @@ class SignupForm extends Component {
 
   render() {
     return (
-      <div>
-        <header className="header-footer">Sign Up</header>
-        <form className="form-horizontal" onSubmit={this.handleSubmit} >
-          <div className="form-group">
-            <div className="col-sm-12">
+      <React.Fragment>
+        <header className="SignupForm-Headder">
+          <h1>Sign Up</h1>
+        </header>
+        <div className="SignupForm">
+          <form className="SignupForm-Form" onSubmit={this.handleSubmit} >
+            <div className="SignupForm-Group">
               <input type="text" className="form-control" placeholder="Name" value={this.state.name} onChange={(e) => this.handleChange('name', e)} />
             </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12">
+            <div className="SignupForm-Group">
               <input type="email" className="form-control" placeholder="Email" value={this.state.email} onChange={(e) => this.handleChange('email', e)} />
             </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12">
+            <div className="SignupForm-Group">
               <input type="password" className="form-control" placeholder="Password" value={this.state.password} onChange={(e) => this.handleChange('password', e)} />
             </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12">
+            <div className="SignupForm-Group">
               <input type="password" className="form-control" placeholder="Confirm Password" value={this.state.passwordConf} onChange={(e) => this.handleChange('passwordConf', e)} />
             </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12 text-center">
-              <button className="btn btn-default" disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
-              <Link to='/'>Cancel</Link>
+            <div className="SignupForm-Group">
+              <div className="SignupForm-Buttons">
+                <button className="btn default" disabled={this.isFormInvalid()}>Sign Up</button>
+                <Link to='/' className="btn cancel">Cancel</Link>
+              </div>
             </div>
-          </div>
-        </form>
-      </div>
+          </form>
+        </div>
+      </React.Fragment>
     );
   }
 };
