@@ -59,47 +59,63 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Swatch.io</h1>
         <Router>
           <React.Fragment>
-            <NavBar 
-              user={this.state.user}
-              handleLogout={this.handleLogout}
-            />
             <Switch>
               <Route exact path='/' render={(props) => (
                 userService.getUser() ?
-                <HomePage />
+                <HomePage 
+                  user={this.state.user}
+                  handleLogout={this.handleLogout}
+                />
                 :
-                <LandingPage />
+                <LandingPage 
+                  user={this.state.user}
+                  handleLogout={this.handleLogout}
+                />
               )}/>
               <Route exact path='/newproject' render={(props) => (
                 userService.getUser() ?
-                <NewProjectPage />
+                <NewProjectPage 
+                  user={this.state.user}
+                  handleLogout={this.handleLogout}
+                />
                 :
                 <Redirect to='/login' />
               )}/>
               <Route exact path='/project/:project_id' render={(props) => (
                 userService.getUser() ?
-                <ProjectPage />
+                <ProjectPage 
+                  user={this.state.user}
+                  handleLogout={this.handleLogout}
+                />
                 :
                 <Redirect to='/login' />
               )}/>
               <Route exact path='/newswatch' render={(props) => (
                 userService.getUser() ?
-                <NewSwatchPage />
+                <NewSwatchPage 
+                  user={this.state.user}
+                  handleLogout={this.handleLogout}
+                />
                 :
                 <Redirect to='/login' />
               )}/>
               <Route exact path='/swatches' render={(props) => (
                 userService.getUser() ?
-                <SwatchesPage />
+                <SwatchesPage 
+                  user={this.state.user}
+                  handleLogout={this.handleLogout}
+                />
                 :
                 <Redirect to='/login' />
               )}/>
               <Route exact path='/swatch/:swatch_id' render={(props) => (
                 userService.getUser() ?
-                <SwatchPage />
+                <SwatchPage 
+                  user={this.state.user}
+                  handleLogout={this.handleLogout}
+                />
                 :
                 <Redirect to='/login' />
               )}/>
