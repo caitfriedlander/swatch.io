@@ -7,6 +7,11 @@ const LandingPage = (props) => {
     return(
         <div className="LandingPage">
             <h1>SWATCH.IO LANDING PAGE</h1>
+            <div className="LandingPage-Buttons">
+                <Link to='/login' className='NavBar-link'>LOG IN</Link>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <Link to='/signup' className='NavBar-link'>SIGN UP</Link>
+            </div>
         </div>
     );
 }

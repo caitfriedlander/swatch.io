@@ -12,6 +12,11 @@ import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import LandingPage from '../LandingPage/LandingPage';
 import HomePage from '../HomePage/HomePage';
+import NewProjectPage from '../NewProjectPage/NewProjectPage';
+import ProjectPage from '../ProjectPage/ProjectPage';
+import NewSwatchPage from '../NewSwatchPage/NewSwatchPage';
+import SwatchesPage from '../SwatchesPage/SwatchesPage';
+import SwatchPage from '../SwatchPage/SwatchPage';
 
 class App extends Component {
   constructor(props) {
@@ -67,6 +72,36 @@ class App extends Component {
                 <HomePage />
                 :
                 <LandingPage />
+              )}/>
+              <Route exact path='/newproject' render={(props) => (
+                userService.getUser() ?
+                <NewProjectPage />
+                :
+                <Redirect to='/login' />
+              )}/>
+              <Route exact path='/project/:project_id' render={(props) => (
+                userService.getUser() ?
+                <ProjectPage />
+                :
+                <Redirect to='/login' />
+              )}/>
+              <Route exact path='/newswatch' render={(props) => (
+                userService.getUser() ?
+                <NewSwatchPage />
+                :
+                <Redirect to='/login' />
+              )}/>
+              <Route exact path='/swatches' render={(props) => (
+                userService.getUser() ?
+                <SwatchesPage />
+                :
+                <Redirect to='/login' />
+              )}/>
+              <Route exact path='/swatch/:swatch_id' render={(props) => (
+                userService.getUser() ?
+                <SwatchPage />
+                :
+                <Redirect to='/login' />
               )}/>
               <Route exact path='/signup' render={(props) => 
                 <SignupPage {...props}
