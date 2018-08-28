@@ -10,7 +10,7 @@ const HomePage = (props) => {
                 user={props.user}
                 handleLogout={props.handleLogout}
             />
-            <h2>SWATCHES (0)</h2>
+            <h2>SWATCHES <span>(0)</span></h2>
             <div className="HomePage-Swatches">
                 <div className="HomePage-Swatch">
                     <div className="img"></div>
@@ -35,7 +35,7 @@ const HomePage = (props) => {
                 <Link to='/swatches' className="btn">SEE ALL</Link>
             </div>
             <hr />
-            <h2>PROJECTS ({props.projects.length})</h2>
+            <h2>PROJECTS <span>({props.projects.length})</span></h2>
             <div className="HomePage-Buttons">
                 <Link to='/projects/new' className="NewProject-btn">NEW PROJECT</Link>
                 {props.projects.map(p => (

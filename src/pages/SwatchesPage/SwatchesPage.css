@@ -1,0 +1,81 @@
+.SwatchesPage {
+    display: flex;
+    height: 90vh;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 5vh;
+}
+
+.SwatchesPage-DDs {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.SwatchesPage-DDs > .dd {
+    padding: 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    width: 150px;
+    margin: -10px auto 10px;
+    color: green;
+    background-color: var(--primary-text);
+    display: inline-block;
+}
+
+.SwatchesPage-Swatches {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    width: 90vw;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.SwatchesPage-Swatch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 150px;
+    width: 100px;
+    margin: 5px;
+}
+
+.SwatchesPage-Swatch > .img {
+    height: 100px;
+    width: 100px;
+    background-color: aqua;
+}
+
+.SwatchesPage-Swatch > h4 {
+    margin: 5px auto -10px;
+    color: var(--primary-text);
+}
+
+.SwatchesPage-Swatch > p {
+    margin: 5px auto;
+    color: var(--primary-text);
+}
+
+.SwatchesPage-Buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.SwatchesPage-Buttons > .btn {
+    padding: 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    width: 150px;
+    margin: -10px auto 10px;
+    color: var(--primary-text);
+    background-color: var(--primary-bg);
+    display: inline-block;
+}
