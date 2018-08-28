@@ -10,23 +10,40 @@ const HomePage = (props) => {
                 user={props.user}
                 handleLogout={props.handleLogout}
             />
-            <h1>HOME</h1>
             <h2>SWATCHES (0)</h2>
-            <p>Swatch gallery</p>
-            <Link to='/swatches'>SEE ALL</Link>
+            <div className="HomePage-Swatches">
+                <div className="HomePage-Swatch">
+                    <div className="img"></div>
+                </div>
+                <div className="HomePage-Swatch">
+                    <div className="img"></div>
+                </div>
+                <div className="HomePage-Swatch">
+                    <div className="img"></div>
+                </div>
+                <div className="HomePage-Swatch">
+                    <div className="img"></div>
+                </div>
+                <div className="HomePage-Swatch">
+                    <div className="img"></div>
+                </div>
+                <div className="HomePage-Swatch">
+                    <div className="img"></div>
+                </div>
+            </div>
+            <div className="HomePage-Buttons">
+                <Link to='/swatches' className="btn">SEE ALL</Link>
+            </div>
             <hr />
             <h2>PROJECTS ({props.projects.length})</h2>
-            <div>
-            <ul>
+            <div className="HomePage-Buttons">
+                <Link to='/projects/new' className="NewProject-btn">NEW PROJECT</Link>
                 {props.projects.map(p => (
-                    <li key={p._id}>
-                        {console.log(p)}
-                        <Link to={`/projects/${p._id}`}>{p.name}</Link>
-                    </li>
+                    <div key={p._id}>
+                        <Link to={`/projects/${p._id}`} className="Project-btn">{p.name}</Link>
+                    </div>
                 ))}
-            </ul>
-        </div>
-            <Link to='/projects/new'>NEW PROJECT</Link>
+            </div>
         </div>
     );
 }

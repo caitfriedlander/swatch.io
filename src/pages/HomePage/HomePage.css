@@ -1,0 +1,65 @@
+
+.HomePage-Swatches {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    width: 100vw;
+    padding: 10px;
+    margin: -10px auto 0;
+}
+
+.HomePage-Swatch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100px;
+    width: 100px;
+    margin: 0 5px 30px;
+    background-color: aqua;
+}
+
+.HomePage-Buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.HomePage-Buttons > .btn {
+    padding: 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    width: 150px;
+    margin: -20px auto 10px;
+    color: var(--primary-text);
+    background-color: var(--primary-bg);
+    display: inline-block;
+}
+
+.Project-btn {
+    padding: 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    width: 300px;
+    margin: 10px auto;
+    color: var(--primary-text);
+    background-color: green;
+    display: inline-block;
+}
+
+.NewProject-btn {
+    padding: 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    width: 150px;
+    margin: 0 auto 10px;
+    color: var(--primary-text);
+    background-color: var(--primary-bg);
+    display: inline-block;
+}
