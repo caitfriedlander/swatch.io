@@ -10,17 +10,6 @@
     margin-top: -20vh;
 }
 
-.SignupForm {
-    width: 80vw;
-    height: 60vh;
-    background-color: var(--primary-bg);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    margin-bottom: -20vh;
-}
-
 .NewProjectForm-Group > p {
     font-size: 20px;
 }

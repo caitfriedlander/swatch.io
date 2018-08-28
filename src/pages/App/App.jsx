@@ -8,6 +8,7 @@ import {
 import './App.css';
 import userService from '../../utils/userService';
 import projectAPI from '../../utils/projectAPI';
+import swatchAPI from '../../utils/swatchAPI';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import LandingPage from '../LandingPage/LandingPage';
@@ -32,7 +33,12 @@ class App extends Component {
   loadProjects = () => {
     if(this.state.user) {
       projectAPI.index().then(projects => this.setState({projects}));
-      // projects are not being saved to state correctly
+    }
+  }
+
+  loadSwatches = () => {
+    if(this.state.user) {
+      swatchAPI.index().then(swatches => this.setState({swatches}));
     }
   }
 
@@ -54,6 +60,7 @@ class App extends Component {
       user: userService.getUser()
     }, () => {
       this.loadProjects();
+      this.loadSwatches();
     });
   }
 
@@ -63,13 +70,21 @@ class App extends Component {
     });
   }
 
+  handleCreateSwatch = (swatch) => {
+    this.setState({
+      swatches: [...this.state.swatches, swatch]
+    });
+  }
+
 
   /*---------- Lifecycle Methods ----------*/
 
   componentDidMount() {
     let user = userService.getUser();
-    this.setState({user});
-    this.loadProjects();
+    this.setState({user}, function() {
+      this.loadProjects();
+      this.loadSwatches(); 
+    });
   }
 
   /*---------- Render ----------*/
@@ -86,6 +101,7 @@ class App extends Component {
                   {...props}
                   user={this.state.user}
                   projects={this.state.projects}
+                  swatches={this.state.swatches}
                   handleLogout={this.handleLogout}
                   loadProjects={this.loadProjects}
                 />
@@ -110,9 +126,8 @@ class App extends Component {
                 userService.getUser() ?
                 <ProjectPage 
                   user={this.state.user}
-                  projects={this.state.projects}
+                  project={this.state.projects.find(p => p._id === props.match.params.project_id)}
                   handleLogout={this.handleLogout}
-                  loadProjects={this.loadProjects}
                   {...props}
                 />
                 :
@@ -123,6 +138,7 @@ class App extends Component {
                 <NewSwatchPage 
                   user={this.state.user}
                   handleLogout={this.handleLogout}
+                  handleCreateSwatch={this.handleCreateSwatch}
                   {...props}
                 />
                 :

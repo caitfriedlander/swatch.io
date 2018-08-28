@@ -2,50 +2,47 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './HomePage.css';
 import NavBar from '../../components/NavBar/NavBar';
-
-const HomePage = (props) => {
-    return(
-        <div className="HomePage">
-            <NavBar 
-                user={props.user}
-                handleLogout={props.handleLogout}
-            />
-            <h2>SWATCHES <span>(0)</span></h2>
-            <div className="HomePage-Swatches">
-                <div className="HomePage-Swatch">
-                    <div className="img"></div>
+class HomePage extends React.Component {
+    constructor(props) {
+        super(props);
+      }
+    ComponentDidMount(props) {
+        this.props.loadProjects();
+    }
+    render() {
+        return(
+            <div className="HomePage">
+                <NavBar 
+                    user={this.props.user}
+                    handleLogout={this.props.handleLogout}
+                />
+                <h2>SWATCHES <span>(0)</span></h2>
+                <div className="HomePage-Swatches">
+                    {this.props.swatches.map(s => (
+                        <div key={s._id}>
+                            <Link to={`/swatches/${s._id}`}>
+                                <div className="HomePage-Swatch">
+                                    <div className="img"></div>
+                                </div>
+                            </Link>
+                        </div>
+                    ))}
                 </div>
-                <div className="HomePage-Swatch">
-                    <div className="img"></div>
+                <div className="HomePage-Buttons">
+                    <Link to='/swatches' className="btn">SEE ALL</Link>
                 </div>
-                <div className="HomePage-Swatch">
-                    <div className="img"></div>
-                </div>
-                <div className="HomePage-Swatch">
-                    <div className="img"></div>
-                </div>
-                <div className="HomePage-Swatch">
-                    <div className="img"></div>
-                </div>
-                <div className="HomePage-Swatch">
-                    <div className="img"></div>
+                <hr />
+                <h2>PROJECTS <span>({this.props.projects.length})</span></h2>
+                <div className="HomePage-Buttons">
+                    <Link to='/projects/new' className="NewProject-btn">NEW PROJECT</Link>
+                    {this.props.projects.map(p => (
+                        <div key={p._id}>
+                            <Link to={`/projects/${p._id}`} className="Project-btn">{p.name}</Link>
+                        </div>
+                    ))}
                 </div>
             </div>
-            <div className="HomePage-Buttons">
-                <Link to='/swatches' className="btn">SEE ALL</Link>
-            </div>
-            <hr />
-            <h2>PROJECTS <span>({props.projects.length})</span></h2>
-            <div className="HomePage-Buttons">
-                <Link to='/projects/new' className="NewProject-btn">NEW PROJECT</Link>
-                {props.projects.map(p => (
-                    <div key={p._id}>
-                        <Link to={`/projects/${p._id}`} className="Project-btn">{p.name}</Link>
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
+    )}
 }
 
 export default HomePage;

@@ -13,13 +13,6 @@ function index(req, res, next) {
     .then(user => res.json({projects: user.projects}));
 }
 
-function show(req, res, next) {
-    Project.findById(this.props.match.params.id, function (err, p) {
-      if (err) return next(err);
-      res.json(p);
-    });
-  }
-
 function create(req, res, next) {
     var project = new Project(req.body);
     project.save().then(() => {
@@ -31,6 +24,13 @@ function create(req, res, next) {
                 res.json({project: project});
             });
         });
+    });
+}
+
+function show(req, res, next) {
+    Project.findById(req.body._id, function (err, p) {
+      if (err) return next(err);
+      res.json(p);
     });
 }
 
