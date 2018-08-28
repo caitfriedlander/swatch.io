@@ -20,6 +20,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use('/api/users', require('./routes/api/users'));
 // Mount our custom auth middleware
 app.use(require('./config/auth'));
+app.use('/api/projects', require('./routes/api/projects'));
 // The following "catch all" route is necessary for
 // a SPA's client-side routing to properly work
 app.get('/*', function(req, res) {

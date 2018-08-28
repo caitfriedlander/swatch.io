@@ -35,8 +35,14 @@ function login(req, res) {
 /*----- Helper Functions -----*/
 
 function createJWT(user) {
-  return jwt.sign(
-    {user}, // data payload
+  return jwt.sign({
+    // user: {
+    //   _id: user._id,
+    //   name: user.name,
+    //   email: user.email
+    // }
+    user
+  },  
     SECRET,
     {expiresIn: '24h'}
   );

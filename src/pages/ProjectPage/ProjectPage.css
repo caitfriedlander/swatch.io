@@ -1,0 +1,65 @@
+.ProjectPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ProjectPage-Buttons > .btn {
+    padding: 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    width: 140px;
+    margin: 10px;
+    color: var(--primary-text);
+    background-color: var(--primary-bg);
+    display: inline-block;
+}
+
+.ProjectPage-Header {
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    width: 80vw;
+    margin: 10px 10vw;
+    color: var(--primary-text);
+    background-color: var(--primary-bg);
+    display: inline-block;
+}
+
+.ProjectPage-Swatches {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    width: 90vw;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.ProjectPage-Swatch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 150px;
+    width: 150px;
+    margin: 5px;
+}
+
+.ProjectPage-Swatch > .img {
+    height: 100px;
+    width: 100px;
+    background-color: aqua;
+}
+
+.ProjectPage-Swatch > h4 {
+    margin: 5px auto -10px;
+    color: var(--primary-text);
+}
+
+.ProjectPage-Swatch > p {
+    margin: 5px auto;
+    color: var(--primary-text);
+}

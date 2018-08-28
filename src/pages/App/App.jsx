@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import './App.css';
 import userService from '../../utils/userService';
-import NavBar from '../../components/NavBar/NavBar';
+import projectAPI from '../../utils/projectAPI';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import LandingPage from '../LandingPage/LandingPage';
@@ -22,11 +22,19 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: null
+      user: null,
+      swatches: [],
+      projects: []
     }
   }
 
   /*---------- Helper Methods ----------*/
+  loadProjects = () => {
+    if(this.state.user) {
+      projectAPI.index().then(projects => this.setState({projects}));
+      // projects are not being saved to state correctly
+    }
+  }
 
   /*---------- Callback Methods ----------*/
 
@@ -44,14 +52,24 @@ class App extends Component {
   handleLogin = () => {
     this.setState({
       user: userService.getUser()
+    }, () => {
+      this.loadProjects();
     });
   }
+
+  handleCreateProject = (project) => {
+    this.setState({
+      projects: [...this.state.projects, project]
+    });
+  }
+
 
   /*---------- Lifecycle Methods ----------*/
 
   componentDidMount() {
     let user = userService.getUser();
     this.setState({user});
+    this.loadProjects();
   }
 
   /*---------- Render ----------*/
@@ -65,8 +83,11 @@ class App extends Component {
               <Route exact path='/' render={(props) => (
                 userService.getUser() ?
                 <HomePage 
+                  {...props}
                   user={this.state.user}
+                  projects={this.state.projects}
                   handleLogout={this.handleLogout}
+                  loadProjects={this.loadProjects}
                 />
                 :
                 <LandingPage 
@@ -74,29 +95,35 @@ class App extends Component {
                   handleLogout={this.handleLogout}
                 />
               )}/>
-              <Route exact path='/newproject' render={(props) => (
+              <Route exact path='/projects/new' render={(props) => (
                 userService.getUser() ?
                 <NewProjectPage 
                   user={this.state.user}
                   handleLogout={this.handleLogout}
+                  handleCreateProject={this.handleCreateProject}
+                  {...props}
                 />
                 :
                 <Redirect to='/login' />
               )}/>
-              <Route exact path='/project/:project_id' render={(props) => (
+              <Route exact path='/projects/:project_id' render={(props) => (
                 userService.getUser() ?
                 <ProjectPage 
                   user={this.state.user}
+                  projects={this.state.projects}
                   handleLogout={this.handleLogout}
+                  loadProjects={this.loadProjects}
+                  {...props}
                 />
                 :
                 <Redirect to='/login' />
               )}/>
-              <Route exact path='/newswatch' render={(props) => (
+              <Route exact path='/swatches/new' render={(props) => (
                 userService.getUser() ?
                 <NewSwatchPage 
                   user={this.state.user}
                   handleLogout={this.handleLogout}
+                  {...props}
                 />
                 :
                 <Redirect to='/login' />
@@ -106,15 +133,18 @@ class App extends Component {
                 <SwatchesPage 
                   user={this.state.user}
                   handleLogout={this.handleLogout}
+                  {...props}
                 />
                 :
                 <Redirect to='/login' />
               )}/>
-              <Route exact path='/swatch/:swatch_id' render={(props) => (
+              <Route exact path='/swatches/:swatch_id' render={(props) => (
                 userService.getUser() ?
                 <SwatchPage 
                   user={this.state.user}
                   handleLogout={this.handleLogout}
+                  loadProjects={this.loadProjects}
+                  {...props}
                 />
                 :
                 <Redirect to='/login' />

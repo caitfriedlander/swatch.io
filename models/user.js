@@ -7,8 +7,8 @@ var userSchema = new mongoose.Schema({
   name: String,
   email: {type: String, required: true, lowercase: true, unique: true},
   password: String,
-  swatches: {type: mongoose.Schema.Types.ObjectId, ref: 'Swatch'},
-  projects: {type: mongoose.Schema.Types.ObjectId, ref: 'Project'}
+  swatches: [{type: mongoose.Schema.Types.ObjectId, ref: 'Swatch'}],
+  projects: [{type: mongoose.Schema.Types.ObjectId, ref: 'Project'}]
 }, {
   timestamps: true
 });

@@ -1,7 +1,7 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import './SwatchPage.css';
 import NavBar from '../../components/NavBar/NavBar';
+import SwatchCard from '../../components/SwatchCard/SwatchCard';
 
 const SwatchPage = (props) => {
 
@@ -12,6 +12,7 @@ const SwatchPage = (props) => {
                 handleLogout={props.handleLogout}
             />
             <h1>SWATCH.IO SWATCH PAGE</h1>
+            <SwatchCard />
         </div>
     );
 }

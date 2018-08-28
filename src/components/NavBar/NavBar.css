@@ -1,0 +1,19 @@
+.NavBar {
+    background-color: var(--primary-bg);
+    height: 10vh;
+    width: 100vw;
+    margin-top: -20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.NavBar-Nav {
+    display: flex;
+}
+
+.NavBar-link {
+    text-decoration: none;
+    color: var(--primary-text);
+    margin: 0 10px;
+}
