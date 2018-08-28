@@ -1,0 +1,64 @@
+.NewProjectForm-Form {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-bg);
+    height: 40vh;
+    width: 100vw;
+    padding: 20px;
+    color: var(--primary-text);
+    text-align: center;
+    margin-top: -20vh;
+}
+
+.SignupForm {
+    width: 80vw;
+    height: 60vh;
+    background-color: var(--primary-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: -20vh;
+}
+
+.NewProjectForm-Group > p {
+    font-size: 20px;
+}
+
+.NewProjectForm-Group {
+    margin: 10px;
+}
+
+.NewProjectForm-Group > input {
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+}
+
+.NewProjectForm-Buttons { 
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.NewProjectForm-Buttons > .btn {
+    padding: 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    width:140px;
+    margin: 10px;
+    color: var(--primary-text);
+}
+
+.NewProjectForm-Buttons > .default {
+    background-color: rgb(60, 162, 60);
+}
+
+.NewProjectForm-Buttons > a.btn.cancel {
+    background-color: rgb(150, 46, 71);
+    display: inline-block;
+}

@@ -38,7 +38,8 @@ class NewProjectForm extends Component {
         <div className="NewProjectForm">
           <form className="NewProjectForm-Form" onSubmit={this.handleSubmit} >
             <div className="NewProjectForm-Group">
-              <input type="text" className="form-control" placeholder="Name" value={this.state.name} onChange={(e) => this.handleChange('name', e)} />
+                <p>Creat a project and add swatches to it to keep your collection organized.</p>
+                <input type="text" className="form-control" placeholder="Name" value={this.state.name} onChange={(e) => this.handleChange('name', e)} />
             </div>
             <div className="NewProjectForm-Group">
               <div className="NewProjectForm-Buttons">

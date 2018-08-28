@@ -15,18 +15,19 @@ class NewProjectPage extends React.Component {
 
   render() {
     return (
-        <div className="NewProjectPage">
-            <NavBar 
-                user={this.props.user}
-                handleLogout={this.props.handleLogout}
-            />
-            <h1>NEW PROJECT PAGE</h1>
-            <NewProjectForm 
-                handleCreateProject={this.props.handleCreateProject}
-                updateMessage={this.updateMessage}
-                {...this.props}
-            />
-        </div>
+        <React.Fragment>
+                <NavBar 
+                    user={this.props.user}
+                    handleLogout={this.props.handleLogout}
+                />
+            <div className="NewProjectPage">
+                    <NewProjectForm 
+                        handleCreateProject={this.props.handleCreateProject}
+                        updateMessage={this.updateMessage}
+                        {...this.props}
+                    />
+            </div>
+        </React.Fragment>
     )}
 }
 
