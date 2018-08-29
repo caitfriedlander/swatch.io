@@ -26,7 +26,7 @@
     font-size: 20px;
 }
 
-.NewSwatchForm-Camera {
+.NewSwatchForm-ShowCamera {
     width: 100px;
     margin-bottom: -30px;
 }
@@ -35,7 +35,11 @@
     width: 100px;
     height: 100px;
     background-color: aqua;
-    
+}
+
+.NewSwatchForm-PreviewImage {
+    width: 100px;
+    height: 100px;
 }
 
 .NewSwatchForm-Group > input {
