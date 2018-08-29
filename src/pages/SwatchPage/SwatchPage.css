@@ -1,16 +1,89 @@
 .SwatchPage {
-    height: 100vh;
+    height: 90vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.SwatchPage-Buttons > .btn {
+.SwatchPage-Header {
+    height: 15vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: green;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.SwatchPage-Preview {
+    height: 100px;
+    width: 100px;
+    background-color: aqua;
+}
+
+.SwatchPage-HeaderText {
+    height: 100px;
+    width: 55vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.SwatchPage-HeaderText > * {
+    margin: 5px auto;
+}
+
+.SwatchPage-ProjectsList {
+    height: 60%;
+    width: 100vw;
+    background-color: green;
+    border-radius: 5px;
+    color: var(--primary-text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.SwatchPage-Notes {
+    width: 90vw;
+    height: 40%;
+}
+
+.SwatchPage-Form {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.SwatchPage-Group > select {
+    width: 90vw;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    background-color: white;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.SwatchPage-Buttons > .btn, .SwatchPage-Form > .btn {
     padding: 15px;
     border-radius: 5px;
     text-decoration: none;
     text-align: center;
-    width:200px;
-    margin: 5px;
+    width:150px;
+    margin: 0 5px -20px;
     color: var(--primary-text);
+    background-color: var(--primary-bg);
+    display: inline-block;
 }
+
+

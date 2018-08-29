@@ -48,7 +48,6 @@ class NewSwatchForm extends Component {
               <div className="NewSwatchForm-Preview"></div>
             </div>
             <div className="NewSwatchForm-Group">
-                {/* <input type="text" className="form-control" placeholder="Type" value={this.state.type} onChange={(e) => this.handleChange('type', e)} /> */}
                 <label>Type: </label>
                 <select className="form-control" selected="selected" value={this.state.type} onChange={(e) => this.handleChange('type', e)} >
                       <option value="null"></option>
@@ -196,7 +195,6 @@ class NewSwatchForm extends Component {
                 </select>
             </div>
             <div className="NewSwatchForm-Group">
-                {/* <input type="text" className="form-control" placeholder="Color" value={this.state.color} onChange={(e) => this.handleChange('color', e)} /> */}
                 <label>Color: </label>
                 <select className="form-control" selected="selected" value={this.state.color} onChange={(e) => this.handleChange('color', e)} >
                   <option value="null"></option>
