@@ -9,6 +9,10 @@
     margin: -10px auto 0;
 }
 
+.HomePage-BigText {
+    margin-left: 20px;
+}
+
 .HomePage-Swatch {
     display: flex;
     flex-direction: column;

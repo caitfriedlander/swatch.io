@@ -161,7 +161,7 @@ var swatchSchema = new mongoose.Schema({
       "Red",
       "Purple",
       "Brown",
-      "Yello",
+      "Yellow",
       "Black",
       "Beige",
       "Gold",

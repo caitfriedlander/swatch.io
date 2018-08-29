@@ -208,7 +208,7 @@ class NewSwatchForm extends Component {
                   <option value="Red">Red</option>
                   <option value="Purple">Purple</option>
                   <option value="Brown">Brown</option>
-                  <option value="Yello">Yello</option>
+                  <option value="Yellow">Yellow</option>
                   <option value="Black">Black</option>
                   <option value="Beige">Beige</option>
                   <option value="Gold">Gold</option>

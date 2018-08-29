@@ -17,7 +17,7 @@ class HomePage extends React.Component {
                     user={this.props.user}
                     handleLogout={this.props.handleLogout}
                 />
-                <h2>SWATCHES <span>(0)</span></h2>
+                <h2 className="HomePage-BigText">SWATCHES <span>(0)</span></h2>
                 <div className="HomePage-Swatches">
                     {this.props.swatches.map(s => (
                         <div key={s._id}>
@@ -33,7 +33,7 @@ class HomePage extends React.Component {
                     <Link to='/swatches' className="btn">SEE ALL</Link>
                 </div>
                 <hr />
-                <h2>PROJECTS <span>({this.props.projects.length})</span></h2>
+                <h2 className="HomePage-BigText">PROJECTS <span>({this.props.projects.length})</span></h2>
                 <div className="HomePage-Buttons">
                     <Link to='/projects/new' className="NewProject-btn">NEW PROJECT</Link>
                     {this.props.projects.map(p => (

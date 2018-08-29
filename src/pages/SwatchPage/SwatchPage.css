@@ -14,8 +14,8 @@
     align-items: center;
     justify-content: space-evenly;
     color: green;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .SwatchPage-Preview {
@@ -31,6 +31,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 
 .SwatchPage-HeaderText > * {
@@ -53,6 +54,7 @@
 .SwatchPage-Notes {
     width: 90vw;
     height: 40%;
+    margin-top: -30px;
 }
 
 .SwatchPage-Form {
@@ -80,7 +82,7 @@
     text-decoration: none;
     text-align: center;
     width:150px;
-    margin: 0 5px -20px;
+    margin: 5px 5px -20px;
     color: var(--primary-text);
     background-color: var(--primary-bg);
     display: inline-block;
