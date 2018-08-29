@@ -104,6 +104,7 @@ class App extends Component {
                   swatches={this.state.swatches}
                   handleLogout={this.handleLogout}
                   loadProjects={this.loadProjects}
+                  loadSwatches={this.loadSwatches}
                 />
                 :
                 <LandingPage 
@@ -126,7 +127,6 @@ class App extends Component {
                 userService.getUser() ?
                 <ProjectPage 
                   user={this.state.user}
-                  project={this.state.projects.find(p => p._id === props.match.params.project_id)}
                   handleLogout={this.handleLogout}
                   {...props}
                 />
@@ -158,8 +158,9 @@ class App extends Component {
                 userService.getUser() ?
                 <SwatchPage 
                   user={this.state.user}
+                  projects={this.state.projects}
+                  swatch={this.state.swatches.find(s => s._id === props.match.params.swatch_id)}
                   handleLogout={this.handleLogout}
-                  loadProjects={this.loadProjects}
                   {...props}
                 />
                 :

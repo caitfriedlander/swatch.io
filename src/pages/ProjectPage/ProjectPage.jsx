@@ -2,21 +2,26 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import './ProjectPage.css';
 import NavBar from '../../components/NavBar/NavBar';
+import projectAPI from '../../utils/projectAPI';
 
 class ProjectPage extends Component {
     constructor(props) {
       super(props);
-      // this.state = {
-      //     project: {
-      //         name: '',
-      //         swatches: []
-      //     }
-      // };
+      this.state = {
+        name: '',
+        swatches: []
     }
+}
 
-    componentDidMount() {
-        console.log(`ProjectPage: ${this.props}`)
-    }
+  componentDidMount() {
+      var projectid = this.props.match.params.project_id;
+      var project = projectAPI.show(projectid).then((json) => {
+          this.setState({
+              name: json.name,
+              swatches: [json.swatches]
+          })
+      })
+  }
     
     render() {
         return (
@@ -26,8 +31,8 @@ class ProjectPage extends Component {
                     handleLogout={this.props.handleLogout}
                 />
                 <div className="ProjectPage-Header">
-                    <h2 className="ProjectPage-Name">Project Name</h2>
-                    <h3 className="ProjectPage-Count">(6) Swatches</h3>
+                    <h2 className="ProjectPage-Name">{this.state.name}</h2>
+                    <h3 className="ProjectPage-Count">{this.state.swatches.length === 1 ? `(1) Swatch` : `(${this.state.swatches.length}) Swatches`}</h3>
                 </div>
                 <div className="ProjectPage-Swatches">
                     <div className="ProjectPage-Swatch">

@@ -28,10 +28,11 @@ function create(req, res, next) {
 }
 
 function show(req, res, next) {
-    Project.findById(req.body._id, function (err, p) {
-      if (err) return next(err);
-      res.json(p);
-    });
+    var params = req.params;
+    Project.findById(params.id, (err, project) => {
+        if(err) return next(err);
+        res.json({project: project})
+    })
 }
 
 function update(req, res, next) {

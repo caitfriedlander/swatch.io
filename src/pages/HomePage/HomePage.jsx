@@ -8,6 +8,7 @@ class HomePage extends React.Component {
       }
     ComponentDidMount(props) {
         this.props.loadProjects();
+        this.props.loadSwatches();
     }
     render() {
         return(

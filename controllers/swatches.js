@@ -29,7 +29,11 @@ function create(req, res, next) {
 }
 
 function show(req, res, next) {
-
+    var params = req.params;
+    Swatch.findById(params.id, (err, swatch) => {
+        if(err) return next(err);
+        res.json({swatch: swatch})
+    })
 }
 
 function edit(req, res, next) {

@@ -36,11 +36,7 @@ function login(req, res) {
 
 function createJWT(user) {
   return jwt.sign({
-    user: {
-      _id: user._id,
-      name: user.name,
-      email: user.email
-    }
+    user: user
   },  
     SECRET,
     {expiresIn: '24h'}

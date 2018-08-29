@@ -25,19 +25,19 @@ function update(project) {
 
 }
 
-function show(project) {
-    return fetch(BASE_URL + `${project._id}`, getAuthRequestOptions('GET'))
+function show(projectid) {
+    var options = getAuthRequestOptions('GET');
+    return fetch(`${BASE_URL}/${projectid}`, options)
     .then(res => {
         if (res.ok) return res.json();
         throw new Error('Something Went Wrong');
     })
-    .then(({ project }) => project);
+    .then(({project}) => project);
 }
 
 function destroy(project) {
 
 }
-
 
 function getAuthRequestOptions(method) {
     return {

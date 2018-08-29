@@ -21,6 +21,16 @@ function create(swatch) {
     .then(({ swatch }) => swatch);
 }
 
+function show(swatchid) {
+    var options = getAuthRequestOptions('GET');
+    return fetch(`${BASE_URL}/${swatchid}`, options)
+    .then(res => {
+        if (res.ok) return res.json();
+        throw new Error('Something Went Wrong');
+    })
+    .then(({swatch}) => swatch);
+}
+
 function getAuthRequestOptions(method) {
     return {
         method,
@@ -33,5 +43,6 @@ function getAuthRequestOptions(method) {
 
 export default {
     index,
-    create
+    create,
+    show
 };
