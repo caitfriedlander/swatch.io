@@ -148,7 +148,8 @@ class App extends Component {
                 userService.getUser() ?
                 <SwatchesPage 
                   user={this.state.user}
-                  projects={this.state.projects}
+                  swatches={this.state.swatches}
+                  loadSwatches={this.loadSwatches}
                   handleLogout={this.handleLogout}
                   {...props}
                 />
