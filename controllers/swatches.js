@@ -1,5 +1,6 @@
 var Swatch = require('../models/swatch');
 var User = require('../models/user');
+
 module.exports = {
     index,
     create,
@@ -29,8 +30,7 @@ function create(req, res, next) {
 }
 
 function show(req, res, next) {
-    var params = req.params;
-    Swatch.findById(params.id, (err, swatch) => {
+    Swatch.findById(req.params.id, (err, swatch) => {
         if(err) return next(err);
         res.json({swatch: swatch})
     })
@@ -44,8 +44,11 @@ function update(req, res, next) {
 
 }
 
-function destroy(req, res, next) {
-
-}
+function destroy(req, res) {
+    Swatch.findById(req.params.id, (err, swatch) => {
+      swatch.remove();
+      res.json({});
+    });
+  }
 
 /*----- Helper Functions -----*/

@@ -5,10 +5,15 @@ import NavBar from '../../components/NavBar/NavBar';
 class HomePage extends React.Component {
     constructor(props) {
         super(props);
+        // state = {
+        //     swatches = [],
+        //     projects = []
+        // }
       }
     ComponentDidMount(props) {
         this.props.loadProjects();
         this.props.loadSwatches();
+        // this.setState({swatches: this.props.swatches, projects: this.props.projects})
     }
     render() {
         return(
@@ -19,7 +24,7 @@ class HomePage extends React.Component {
                 />
                 <h2 className="HomePage-BigText">SWATCHES <span>(0)</span></h2>
                 <div className="HomePage-Swatches">
-                    {this.props.swatches.map(s => (
+                    {this.props.swatches.splice(0, 6).map(s => (
                         <div key={s._id}>
                             <Link to={`/swatches/${s._id}`}>
                                 <div className="HomePage-Swatch">

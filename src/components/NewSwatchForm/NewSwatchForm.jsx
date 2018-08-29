@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import swatchAPI from '../../utils/swatchAPI';
 import keys from '../../utils/.keys';
 import Camera from 'react-html5-camera-photo';
-import { uploadFile } from 'react-s3';
+import { uploadFile } from '../../lib/ReactS3';
 import 'react-html5-camera-photo/build/css/index.css';
 import './NewSwatchForm.css';
 
