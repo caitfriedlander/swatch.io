@@ -108,11 +108,13 @@ class NewSwatchForm extends Component {
 		return (
 			<React.Fragment>
 				{this.state.ShowCamera && 
-				<Camera
-					className="NewSwatchForm-Camera"
-					idealResolution={{width: window.innerWidth, height: window.innerWidth }}
-					onTakePhoto = { (dataUri) => { this.onTakePhoto(dataUri); } }
-				/>
+					<div className="NewSwatchForm-CameraBox">
+						<Camera
+							className="NewSwatchForm-Camera"
+							idealResolution={{width: window.innerWidth, height: window.innerWidth }}
+							onTakePhoto = { (dataUri) => { this.onTakePhoto(dataUri); } }
+						/>
+					</div>
 				}
 				<div className="NewSwatchForm">
 				<form className="NewSwatchForm-Form" onSubmit={this.handleSubmit} >

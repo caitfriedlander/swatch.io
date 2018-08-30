@@ -1,3 +1,22 @@
+.NewSwatchForm-CameraBox {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+}
+.NewSwatchForm-Camera {
+    margin-top: 50vh;
+}
+
+.react-html5-camera-photo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    margin-top: 70vh;
+    background-color: black;
+}
+
 .NewSwatchForm-Form {
     display: flex;
     flex-direction: column;
