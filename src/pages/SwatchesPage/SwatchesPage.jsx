@@ -27,7 +27,7 @@ class SwatchesPage extends React.Component {
                         {this.props.swatches.map(s => (
                             <Link to={`/swatches/${s._id}`} key={s._id}>
                                 <div className="SwatchesPage-Swatch">
-                                    {s.image ? <img className="img" src={s.image}></img> : ''}
+                                    {s.image ? <img className="img" alt="preview" src={s.image}></img> : ''}
                                     <div className="SwatchesPage-TextBox">
                                         <h4>{s.color.toUpperCase()} {s.type.toUpperCase()}</h4>
                                         <p>{s.quantity}</p>

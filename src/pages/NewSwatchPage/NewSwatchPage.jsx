@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import './NewSwatchPage.css';
 import NavBar from '../../components/NavBar/NavBar';
 import NewSwatchForm from '../../components/NewSwatchForm/NewSwatchForm';

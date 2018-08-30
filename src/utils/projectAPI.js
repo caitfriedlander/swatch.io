@@ -35,6 +35,17 @@ function show(projectid) {
     .then(({project}) => project);
 }
 
+function addSwatch(projectid, swatchid) {
+    // an update function technically
+    var options = getAuthRequestOptions('PUT');
+    return fetch(`${BASE_URL}/${projectid}/swatches/${swatchid}`, options)
+    .then(res => {
+        if (res.ok) return res.json();
+        throw new Error('Something Went Wrong');
+    })
+    .then(({project}) => project);
+}
+
 function destroy(project) {
 
 }
@@ -54,5 +65,6 @@ export default {
     create,
     update,
     show,
+    addSwatch,
     delete: destroy
 };

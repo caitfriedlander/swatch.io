@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import './SwatchPage.css';
 import NavBar from '../../components/NavBar/NavBar';
 import swatchAPI from  '../../utils/swatchAPI';
+import projectAPI from  '../../utils/projectAPI';
 
 class SwatchPage extends Component {
     constructor(props) {
@@ -13,15 +14,29 @@ class SwatchPage extends Component {
           color: '',
           quantity: '',
           notes: '',
-          image: ''
+          image: '',
+          projectId: '',
+          message: '',
+          project: null
       }
-  }
+    }
+
+	handleChange = (field, e) => {
+		this.setState({
+		[field]: e.target.value
+		});
+	}
     
-    handleDelete = (e) => {
+    handleAddToProject = (e) => {
         e.preventDefault();
-        console.log(this.state)
-        swatchAPI.delete(this.state.id)
-		.then(swatch => {
+        projectAPI.addSwatch(this.state.projectId, this.state.id)
+        .then(project => this.setState({project}));
+    }
+
+    handleDelete = () => {
+        swatchAPI.delete(this.state.id, this.state.project && this.state.project._id)
+		.then(() => {
+            this.props.handleDeleteSwatch(this.state.id);
 			this.props.history.push('/');
 		});
     }
@@ -29,7 +44,6 @@ class SwatchPage extends Component {
     componentDidMount() {
         var swatchid = this.props.match.params.swatch_id;
         swatchAPI.show(swatchid).then((json) => {
-            console.log(this.props.projects);
             this.setState({
                 id: json._id,
                 type: json.type,
@@ -50,7 +64,7 @@ class SwatchPage extends Component {
                 />
                 <div className="SwatchPage-Header">
                     <div className="SwatchPage-Preview">
-                        {this.state.image ? <img className="img" src={this.state.image}></img> : ''}
+                        {this.state.image ? <img className="img" alt="preview" src={this.state.image}></img> : <img className="img" alt="preview" src="https://i.imgur.com/FEPUuCj_d.jpg"></img>}
                     </div>
                     <div className="SwatchPage-HeaderText">
                         <h1 className="SwatchPage-Title">{this.state.color.toUpperCase()} {this.state.type.toUpperCase()}</h1>
@@ -62,15 +76,21 @@ class SwatchPage extends Component {
                         <h2>NOTES</h2>
                         <p>{this.state.notes}</p>
                     </div>
-                    <form className="SwatchPage-Form">
+                    { this.state.project ? 
+                    <h2>{this.state.project.name}</h2> 
+                    :
+                    <form className="SwatchPage-Form" onSubmit={(e) => this.handleAddToProject(e)}>
                         <div className="SwatchPage-Group">
                             <h2>ADD TO PROJECT</h2>
-                            <select className="form-control" selected="selected" value={this.state.color} onChange={(e) => this.handleChange('color', e)} >
+                            <select className="form-control" selected="selected" value={this.state.projectId} onChange={(e) => this.handleChange('projectId', e)} >
                                 <option value="null"></option>
+                                {this.props.projects.map(p => (
+                                    <option key={p._id} value={p._id}>{p.name}</option>
+                                ))}
                             </select>
                         </div>
-                        <button type="submit" className="btn btn-add" >ADD</button>
-                    </form>
+                        <button type="submit" className="btn btn-add" disabled={!this.state.projectId} >ADD</button>
+                    </form>}
                 </div>
                 <div className="SwatchPage-Buttons">
                     <Link to='#' className="btn btn-edit">EDIT</Link>

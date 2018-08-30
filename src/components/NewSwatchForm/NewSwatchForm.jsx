@@ -29,7 +29,6 @@ class NewSwatchForm extends Component {
 	componentDidMount() {
 		swatchAPI.swatch().then(data => {
 			Object.assign(config, data)
-			console.log(data);
 		});
 		swatchAPI.info().then(info => {
 			this.setState({
@@ -37,7 +36,6 @@ class NewSwatchForm extends Component {
 				types: info.types,
 				quantities: info.quantities	
 			})
-			console.log(info);
 		});
 	}
 
@@ -120,17 +118,17 @@ class NewSwatchForm extends Component {
 				<form className="NewSwatchForm-Form" onSubmit={this.handleSubmit} >
 					<div className="NewSwatchForm-ImgGroup">
 					<div className="NewSwatchForm-ImgBtn">
-						<Link to="#"><img src="https://cdn0.iconfinder.com/data/icons/love-and-romance-1-5/24/7-512.png" className="NewSwatchForm-ShowCamera" onClick={this.handleCameraLaunch}/></Link>
+						<Link to="#"><img src="https://cdn0.iconfinder.com/data/icons/love-and-romance-1-5/24/7-512.png" alt="camera" className="NewSwatchForm-ShowCamera" onClick={this.handleCameraLaunch}/></Link>
 						<h4>Upload an Image</h4>
 					</div>
-					<div className="NewSwatchForm-Preview">{this.state.image ? <img className="NewSwatchForm-PreviewImage" src={this.state.image}></img> : ''}</div>
+					<div className="NewSwatchForm-Preview">{this.state.image ? <img className="NewSwatchForm-PreviewImage" alt="preview" src={this.state.image}></img> : ''}</div>
 					</div>
 					<div className="NewSwatchForm-Group">
 						<label>Type: </label>
 						<select className="form-control" selected="selected" value={this.state.type} onChange={(e) => this.handleChange('type', e)} >
 							<option value="null"></option>
 							{this.state.types.map(t => (
-								<option key={t.key} value={t}>{t}</option>
+								<option key={t} value={t}>{t}</option>
 							))}
 						</select>
 					</div>
@@ -139,7 +137,7 @@ class NewSwatchForm extends Component {
 						<select className="form-control" selected="selected" value={this.state.color} onChange={(e) => this.handleChange('color', e)} >
 							<option value="null"></option>
 							{this.state.colors.map(c => (
-								<option key={c.key} value={c}>{c}</option>
+								<option key={c} value={c}>{c}</option>
 							))}
 						</select>
 					</div>
@@ -149,7 +147,7 @@ class NewSwatchForm extends Component {
 						<select className="form-control" selected="selected" value={this.state.quantity} onChange={(e) => this.handleChange('quantity', e)} >
 							<option value="null"></option>
 							{this.state.quantities.map(q => (
-								<option key={q.key} value={q}>{q}</option>
+								<option key={q} value={q}>{q}</option>
 							))}
 						</select>
 					</div>

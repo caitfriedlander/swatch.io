@@ -4,7 +4,7 @@ module.exports = {
     index,
     create,
     show,
-    update,
+    addSwatch,
     delete: destroy
 };
 
@@ -26,12 +26,18 @@ function show(req, res, next) {
     var params = req.params;
     Project.findById(params.id, (err, project) => {
         if(err) return next(err);
-        res.json({project: project})
-    })
+        res.json({project: project});
+    });
 }
 
-function update(req, res, next) {
-
+function addSwatch(req, res, next) {
+    Project.findById(req.params.projectId, (err, project) => {
+        if(err) return next(err);
+        project.swatches.push(req.params.swatchId);
+        project.save((err, project) => {
+            res.json({project: project});
+        });
+    });
 }
 
 function destroy(req, res, next) {

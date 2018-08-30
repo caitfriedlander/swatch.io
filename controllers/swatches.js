@@ -1,4 +1,5 @@
 var Swatch = require('../models/swatch');
+var Project = require('../models/project');
 var Enums = require('../src/utils/enums');
 
 module.exports = {
@@ -56,9 +57,18 @@ function update(req, res, next) {
 }
 
 function destroy(req, res) {
-    Swatch.findByIdAndRemove(req.params.id, req.body, (err, swatch) => {
+    Swatch.findByIdAndRemove(req.params.swatchId, req.body, (err, swatch) => {
         if (err) return next(err);
-        res.json(swatch);
+        if (req.body.projectId) {
+            Project.findById(req.body.projectId, (err, project) => {
+                if (err) return next(err);
+                project.swatches.remove(swatchId);
+                console.log(swatch)
+                res.json('Removed Swatch');
+            });
+        } else {
+            res.json('Removed Swatch');
+        }
     });
 }
 

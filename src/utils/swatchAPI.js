@@ -31,13 +31,15 @@ function show(swatchid) {
     .then(({swatch}) => swatch);
 }
 
-function destroy(swatchid) {
-    return fetch(`${BASE_URL}/${swatchid}`)
+function destroy(swatchid, projectid) {
+    var options = getAuthRequestOptions('DELETE');
+    if (projectid) options.body = JSON.stringify({projectId: projectid});
+    return fetch(`${BASE_URL}/${swatchid}`, options)
     .then(res => {
-    console.log('Swatch deleted');
+        console.log('Swatch deleted');
     })
     .catch(err => {
-    console.error(err);
+        console.error(err);
     });
 }
 

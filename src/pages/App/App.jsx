@@ -79,6 +79,15 @@ class App extends Component {
     });
   }
 
+  handleDeleteSwatch = (swatchId) => {
+	var newSwatches = [...this.state.swatches];
+	var swatchIdx = newSwatches.findIndex(s => s._id === swatchId);
+	newSwatches.splice(swatchId, 1);
+    this.setState({
+      swatches: newSwatches
+    });
+  }
+
 
   /*---------- Lifecycle Methods ----------*/
 
@@ -166,6 +175,7 @@ class App extends Component {
                   projects={this.state.projects}
                   swatch={this.state.swatches.find(s => s._id === props.match.params.swatch_id)}
 				  handleLogout={this.handleLogout}
+				  handleDeleteSwatch={this.handleDeleteSwatch}
                   {...props}
                 />
                 :
