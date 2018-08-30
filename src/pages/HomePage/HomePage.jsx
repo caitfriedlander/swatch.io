@@ -3,13 +3,7 @@ import {Link} from 'react-router-dom';
 import './HomePage.css';
 import NavBar from '../../components/NavBar/NavBar';
 class HomePage extends React.Component {
-    constructor(props) {
-        super(props);
-        // state = {
-        //     swatches = [],
-        //     projects = []
-        // }
-      }
+
     ComponentDidMount(props) {
         this.props.loadProjects();
         this.props.loadSwatches();

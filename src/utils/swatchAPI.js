@@ -31,6 +31,26 @@ function show(swatchid) {
     .then(({swatch}) => swatch);
 }
 
+function swatch() {
+    var options = getAuthRequestOptions('GET');
+    return fetch(`${BASE_URL}/get`, options)
+    .then(res => {
+        if (res.ok) return res.json();
+        throw new Error('Something Went Wrong');
+    })
+    .then((swatch) => swatch);
+}
+
+function info() {
+    var options = getAuthRequestOptions('GET');
+    return fetch(`${BASE_URL}/info`, options)
+    .then(res => {
+        if (res.ok) return res.json();
+        throw new Error('Something Went Wrong');
+    })
+    .then((info) => info);
+}
+
 function getAuthRequestOptions(method) {
     return {
         method,
@@ -41,8 +61,11 @@ function getAuthRequestOptions(method) {
     };
 }
 
+
 export default {
     index,
     create,
-    show
+    show,
+    swatch,
+    info
 };

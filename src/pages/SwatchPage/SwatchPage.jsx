@@ -18,7 +18,7 @@ class SwatchPage extends Component {
 
     componentDidMount() {
         var swatchid = this.props.match.params.swatch_id;
-        var swatch = swatchAPI.show(swatchid).then((json) => {
+        swatchAPI.show(swatchid).then((json) => {
             console.log(this.props.projects);
             this.setState({
                 type: json.type,

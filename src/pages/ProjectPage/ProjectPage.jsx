@@ -15,7 +15,7 @@ class ProjectPage extends Component {
 
   componentDidMount() {
       var projectid = this.props.match.params.project_id;
-      var project = projectAPI.show(projectid).then((json) => {
+      projectAPI.show(projectid).then((json) => {
           this.setState({
               name: json.name,
               swatches: [json.swatches]
