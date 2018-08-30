@@ -1,5 +1,4 @@
 var Swatch = require('../models/swatch');
-var User = require('../models/user');
 var Enums = require('../src/utils/enums');
 
 module.exports = {
@@ -13,22 +12,16 @@ module.exports = {
 };
 
 function index(req, res, next) {
-    User.findById(req.user._id).populate('swatches')
-    .then(user => res.json({swatches: user.swatches}));
+    var user = req.user._id;
+    Swatch.find({user: req.user._id})
+    .then(swatches => res.json({swatches: swatches}));
 }
 
 function create(req, res, next) {
     var swatch = new Swatch(req.body);
     swatch.user = req.user._id;
     swatch.save().then(() => {
-        User.findById(req.user._id)
-        .then(user => {
-            user.swatches.push(swatch._id);
-            user.save()
-            .then(() => {
-                res.json({swatch: swatch});
-            });
-        });
+        res.json(swatch);
     });
 }
 

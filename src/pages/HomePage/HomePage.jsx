@@ -5,8 +5,8 @@ import NavBar from '../../components/NavBar/NavBar';
 class HomePage extends React.Component {
 
     ComponentDidMount(props) {
-        this.props.loadProjects();
-        this.props.loadSwatches();
+        // this.props.loadProjects();
+        // this.props.loadSwatches();
         // this.setState({swatches: this.props.swatches, projects: this.props.projects})
     }
     render() {
@@ -16,9 +16,9 @@ class HomePage extends React.Component {
                     user={this.props.user}
                     handleLogout={this.props.handleLogout}
                 />
-                <h2 className="HomePage-BigText">SWATCHES <span>(0)</span></h2>
+                <h2 className="HomePage-BigText">SWATCHES <span>({this.props.swatches.length})</span></h2>
                 <div className="HomePage-Swatches">
-                    {this.props.swatches.splice(0, 6).map(s => (
+                    {this.props.swatches.slice(0, 6).map(s => (
                         <div key={s._id}>
                             <Link to={`/swatches/${s._id}`}>
                                 <div className="HomePage-Swatch">

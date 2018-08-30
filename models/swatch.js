@@ -15,7 +15,8 @@ var swatchSchema = new mongoose.Schema({
     type: String,
     enum: Enums.quantities,
     required: true},
-  notes: {type: String}
+  notes: {type: String},
+  user: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}]
 }, {
   timestamps: true
 });

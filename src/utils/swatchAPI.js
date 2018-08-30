@@ -18,7 +18,7 @@ function create(swatch) {
         if (res.ok) return res.json();
         throw new Error('Something Went Wrong');
     })
-    .then(({ swatch }) => swatch);
+    .then((swatch) => swatch);
 }
 
 function show(swatchid) {
