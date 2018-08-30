@@ -49,7 +49,9 @@ class SwatchPage extends Component {
                     handleLogout={this.props.handleLogout}
                 />
                 <div className="SwatchPage-Header">
-                    <div className="SwatchPage-Preview"></div>
+                    <div className="SwatchPage-Preview">
+                        {this.state.image ? <img className="img" src={this.state.image}></img> : ''}
+                    </div>
                     <div className="SwatchPage-HeaderText">
                         <h1 className="SwatchPage-Title">{this.state.color.toUpperCase()} {this.state.type.toUpperCase()}</h1>
                         <h4 className="SwatchPage-QTY">{this.state.quantity}</h4>

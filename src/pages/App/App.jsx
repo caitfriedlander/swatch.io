@@ -52,7 +52,10 @@ class App extends Component {
   handleSignup = () => {
     this.setState({
       user: userService.getUser()
-    });
+    }, () => {
+		this.loadProjects();
+		this.loadSwatches();
+	});
   }
   
   handleLogin = () => {

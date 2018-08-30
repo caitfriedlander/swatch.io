@@ -18,9 +18,9 @@
     margin-bottom: 40px;
 }
 
-.SwatchPage-Preview {
-    height: 100px;
-    width: 100px;
+.SwatchPage-Preview > .img {
+    height: 150px;
+    width: 150px;
     background-color: aqua;
 }
 
