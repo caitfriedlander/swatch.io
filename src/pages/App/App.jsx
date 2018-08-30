@@ -162,7 +162,7 @@ class App extends Component {
                   user={this.state.user}
                   projects={this.state.projects}
                   swatch={this.state.swatches.find(s => s._id === props.match.params.swatch_id)}
-                  handleLogout={this.handleLogout}
+				  handleLogout={this.handleLogout}
                   {...props}
                 />
                 :

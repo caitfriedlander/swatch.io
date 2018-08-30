@@ -8,6 +8,7 @@ class SwatchPage extends Component {
     constructor(props) {
       super(props);
       this.state = {
+          id: '',
           type: '',
           color: '',
           quantity: '',
@@ -15,12 +16,22 @@ class SwatchPage extends Component {
           image: ''
       }
   }
+    
+    handleDelete = (e) => {
+        e.preventDefault();
+        console.log(this.state)
+        swatchAPI.delete(this.state.id)
+		.then(swatch => {
+			this.props.history.push('/');
+		});
+    }
 
     componentDidMount() {
         var swatchid = this.props.match.params.swatch_id;
         swatchAPI.show(swatchid).then((json) => {
             console.log(this.props.projects);
             this.setState({
+                id: json._id,
                 type: json.type,
                 color: json.color,
                 quantity: json.quantity,
@@ -61,7 +72,7 @@ class SwatchPage extends Component {
                 </div>
                 <div className="SwatchPage-Buttons">
                     <Link to='#' className="btn btn-edit">EDIT</Link>
-                    <Link to='#' className="btn btn-delete">DELETE</Link>
+                    <Link to='/' className="btn btn-delete" onClick={this.handleDelete}>DELETE</Link>
                 </div>
             </div>
         )

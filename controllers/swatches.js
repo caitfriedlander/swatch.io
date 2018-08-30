@@ -56,14 +56,17 @@ function info(req, res, next) {
 }
 
 function update(req, res, next) {
-
+    Swatch.findByIdAndUpdate(req.params.id, req.body, (err, swatch) => {
+        if (err) return next(err);
+        res.json(swatch);
+    });
 }
 
 function destroy(req, res) {
-    Swatch.findById(req.params.id, (err, swatch) => {
-      swatch.remove();
-      res.json({});
+    Swatch.findByIdAndRemove(req.params.id, req.body, (err, swatch) => {
+        if (err) return next(err);
+        res.json(swatch);
     });
-  }
+}
 
 /*----- Helper Functions -----*/

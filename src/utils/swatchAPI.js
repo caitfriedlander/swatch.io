@@ -31,6 +31,16 @@ function show(swatchid) {
     .then(({swatch}) => swatch);
 }
 
+function destroy(swatchid) {
+    return fetch(`${BASE_URL}/${swatchid}`)
+    .then(res => {
+    console.log('Swatch deleted');
+    })
+    .catch(err => {
+    console.error(err);
+    });
+}
+
 function swatch() {
     var options = getAuthRequestOptions('GET');
     return fetch(`${BASE_URL}/get`, options)
@@ -67,5 +77,6 @@ export default {
     create,
     show,
     swatch,
-    info
+    info,
+    delete: destroy
 };
