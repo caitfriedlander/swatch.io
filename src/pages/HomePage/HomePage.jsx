@@ -22,7 +22,7 @@ class HomePage extends React.Component {
                         <div key={s._id}>
                             <Link to={`/swatches/${s._id}`}>
                                 <div className="HomePage-Swatch">
-                                    {s.image ? <img className="img" alt="preview" src={s.image}></img> : ''}
+                                    {s.image ? <img className="img" alt="preview" src={s.image}></img> : <img className="img" alt="preview" src="https://i.imgur.com/FEPUuCj.png"></img>}
                                 </div>
                             </Link>
                         </div>

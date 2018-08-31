@@ -8,7 +8,7 @@ router.post('/', swatchesCtrl.create);
 router.get('/get', swatchesCtrl.swatch);
 router.get('/info', swatchesCtrl.info);
 router.get('/:id', swatchesCtrl.show);
-router.put('/', swatchesCtrl.update);
+router.put('/:id', swatchesCtrl.update);
 router.delete('/:id', swatchesCtrl.delete);
 
 

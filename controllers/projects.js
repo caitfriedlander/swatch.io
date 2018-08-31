@@ -24,7 +24,7 @@ function create(req, res, next) {
 
 function show(req, res, next) {
     var params = req.params;
-    Project.findById(params.id, (err, project) => {
+    Project.findById(params.id).populate('swatches').exec((err, project) => {
         if(err) return next(err);
         res.json({project: project});
     });

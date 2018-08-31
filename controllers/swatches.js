@@ -50,13 +50,8 @@ function info(req, res, next) {
 }
 
 function update(req, res, next) {
-    Swatch.findById(req.params.id, (err, swatch) => {
+    Swatch.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, swatch) => {
         if(err) return next(err);
-        swatch.color = req.params.color;
-        swatch.type = req.params.type;
-        swatch.quantity = req.params.quantity;
-        swatch.notes = req.params.notes;
-        swatch.image = req.params.image;
         swatch.save((err, swatch) => {
             if(err) return next(err);
             res.json({swatch: swatch});

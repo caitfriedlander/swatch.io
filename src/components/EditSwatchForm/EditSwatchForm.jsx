@@ -90,7 +90,11 @@ class EditSwatchForm extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		swatchAPI.update(this.state.id)
+		delete this.state.colors;
+		delete this.state.types;
+		delete this.state.quantities;
+		delete this.state.ShowCamera;
+		swatchAPI.update(this.state)
 		.then(swatch => {
 			this.props.history.push('/');
 		});
@@ -142,7 +146,7 @@ class EditSwatchForm extends Component {
 						<Link to="#"><img src="https://cdn0.iconfinder.com/data/icons/love-and-romance-1-5/24/7-512.png" alt="camera" className="EditSwatchForm-ShowCamera" onClick={this.handleCameraLaunch}/></Link>
 						<h4>Upload an Image</h4>
 					</div>
-					<div className="EditSwatchForm-Preview">{this.state.image ? <img className="EditSwatchForm-PreviewImage" alt="preview" src={this.state.image}></img> : ''}</div>
+					<div className="EditSwatchForm-Preview">{this.state.image ? <img className="EditSwatchForm-PreviewImage" alt="preview" src={this.state.image}></img> : <img className="EditSwatchForm-PreviewImage" alt="preview" src="https://i.imgur.com/FEPUuCj.png"></img>}</div>
 					</div>
 					<div className="EditSwatchForm-Group">
 						<label>Type: </label>
@@ -177,8 +181,8 @@ class EditSwatchForm extends Component {
 					</div>
 					<div className="EditSwatchForm-Group">
 						<div className="EditSwatchForm-Buttons">
-							<button type="submit" className="btn default" disabled={this.isFormInvalid()}>EDIT SWATCH</button>
-							<Link to='/' className="btn cancel">CANCEL</Link>
+							<button type="submit" className="btn default" disabled={this.isFormInvalid()}>SAVE SWATCH</button>
+							<Link to={`/swatches/${this.state.id}`} className="btn cancel">CANCEL</Link>
 						</div>
 					</div>
 				</form>

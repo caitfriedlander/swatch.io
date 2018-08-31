@@ -31,9 +31,10 @@ function show(swatchid) {
     .then(({swatch}) => swatch);
 }
 
-function update(swatchid) {
+function update(swatch) {
     var options = getAuthRequestOptions('PUT');
-    return fetch(`${BASE_URL}/${swatchid}`, options)
+    options.body = JSON.stringify(swatch);
+    return fetch(`${BASE_URL}/${swatch.id}`, options)
     .then(res => {
         if (res.ok) return res.json();
         throw new Error('Something Went Wrong');

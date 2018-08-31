@@ -123,7 +123,7 @@ class NewSwatchForm extends Component {
 						<Link to="#"><img src="https://cdn0.iconfinder.com/data/icons/love-and-romance-1-5/24/7-512.png" alt="camera" className="NewSwatchForm-ShowCamera" onClick={this.handleCameraLaunch}/></Link>
 						<h4>Upload an Image</h4>
 					</div>
-					<div className="NewSwatchForm-Preview">{this.state.image ? <img className="NewSwatchForm-PreviewImage" alt="preview" src={this.state.image}></img> : ''}</div>
+					<div className="NewSwatchForm-Preview">{this.state.image ? <img className="NewSwatchForm-PreviewImage" alt="preview" src={this.state.image}></img> : <img className="NewSwatchForm-PreviewImage" alt="preview" src="https://i.imgur.com/FEPUuCj.png"></img>}</div>
 					</div>
 					<div className="NewSwatchForm-Group">
 						<label>Type: </label>

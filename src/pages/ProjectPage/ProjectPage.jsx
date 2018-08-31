@@ -29,7 +29,7 @@ class ProjectPage extends Component {
           this.setState({
               id: json._id,
               name: json.name,
-              swatches: [json.swatches]
+              swatches: json.swatches
           })
       })
   }
@@ -46,36 +46,14 @@ class ProjectPage extends Component {
                     <h3 className="ProjectPage-Count">{this.state.swatches.length === 1 ? `(1) Swatch` : `(${this.state.swatches.length}) Swatches`}</h3>
                 </div>
                 <div className="ProjectPage-Swatches">
-                    <div className="ProjectPage-Swatch">
-                        <div className="img"></div>
-                        <h4>Name / Color</h4>
-                        <p>4 YDS</p>
-                    </div>
-                    <div className="ProjectPage-Swatch">
-                        <div className="img"></div>
-                        <h4>Name / Color</h4>
-                        <p>4 YDS</p>
-                    </div>
-                    <div className="ProjectPage-Swatch">
-                        <div className="img"></div>
-                        <h4>Name / Color</h4>
-                        <p>4 YDS</p>
-                    </div>
-                    <div className="ProjectPage-Swatch">
-                        <div className="img"></div>
-                        <h4>Name / Color</h4>
-                        <p>4 YDS</p>
-                    </div>
-                    <div className="ProjectPage-Swatch">
-                        <div className="img"></div>
-                        <h4>Name / Color</h4>
-                        <p>4 YDS</p>
-                    </div>
-                    <div className="ProjectPage-Swatch">
-                        <div className="img"></div>
-                        <h4>Name / Color</h4>
-                        <p>4 YDS</p>
-                    </div>
+                    { this.state.swatches.map(s => {
+                            return <div className="ProjectPage-Swatch">
+                                {s.image ? <img className="img" alt="preview" src={s.image}></img> : <img className="img" alt="preview" src="https://i.imgur.com/FEPUuCj.png"></img>}
+                                <h4>{s.type} {s.color}</h4>
+                                <p>{s.quantity}</p>
+                            </div>
+                        })
+                    }
                 </div>
                 <div className="ProjectPage-Buttons">
                     <Link to='/' className="btn btn-delete" onClick={this.handleDelete}>DELETE</Link>
