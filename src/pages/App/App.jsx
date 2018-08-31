@@ -26,7 +26,9 @@ class App extends Component {
     this.state = {
       user: null,
       swatches: [],
-      projects: []
+	  projects: [],
+	  filterColor: '',
+	  filterType: ''
     }
   }
 
@@ -41,6 +43,13 @@ class App extends Component {
     if(this.state.user) {
       swatchAPI.index().then(swatches => this.setState({swatches}));
     }
+  }
+
+  getFilteredSwatches = () => {
+	  var filteredSwatches = this.state.swatches;
+	  if (this.state.filterColor) filteredSwatches = filteredSwatches.filter(s => s.color === this.state.filterColor);
+	  if (this.state.filterType) filteredSwatches = filteredSwatches.filter(s => s.type === this.state.filterType);
+	  return filteredSwatches;
   }
 
   /*---------- Callback Methods ----------*/
@@ -96,6 +105,12 @@ class App extends Component {
     this.setState({
       projects: newProjects
     });
+  }
+
+  handleSetFilter = (field, value) => {
+	this.setState({
+		[field]: value
+	});
   }
 
 
@@ -177,18 +192,22 @@ class App extends Component {
                 :
                 <Redirect to='/login' />
               )}/>
-              <Route exact path='/swatches' render={(props) => (
-                userService.getUser() ?
-                <SwatchesPage 
-                  user={this.state.user}
-                  swatches={this.state.swatches}
-                  loadSwatches={this.loadSwatches}
-                  handleLogout={this.handleLogout}
-                  {...props}
-                />
+              <Route exact path='/swatches' render={(props) => {
+				var swatches = this.getFilteredSwatches();
+                return userService.getUser() ?
+					<SwatchesPage 
+						user={this.state.user}
+						swatches={swatches}
+						loadSwatches={this.loadSwatches}
+						handleLogout={this.handleLogout}
+						handleSetFilter={this.handleSetFilter}
+						filterColor={this.state.filterColor}
+						filterType={this.state.filterType}
+						{...props}
+					/>
                 :
-                <Redirect to='/login' />
-              )}/>
+					<Redirect to='/login' />
+              }}/>
               <Route exact path='/swatches/:swatch_id' render={(props) => (
                 userService.getUser() ?
                 <SwatchPage 

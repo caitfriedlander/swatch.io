@@ -6,9 +6,10 @@ module.exports = {
     index,
     create,
     show,
-    swatch,
     update,
+    swatch,
     info,
+    search,
     delete: destroy
 };
 
@@ -33,6 +34,16 @@ function show(req, res, next) {
     })
 }
 
+function update(req, res, next) {
+    Swatch.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, swatch) => {
+        if(err) return next(err);
+        swatch.save((err, swatch) => {
+            if(err) return next(err);
+            res.json({swatch: swatch});
+        });
+    });
+}
+
 function swatch(req, res, next) {
     res.json({
         bucketName: process.env.BUCKET_NAME,
@@ -49,14 +60,11 @@ function info(req, res, next) {
     });
 }
 
-function update(req, res, next) {
-    Swatch.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, swatch) => {
-        if(err) return next(err);
-        swatch.save((err, swatch) => {
-            if(err) return next(err);
-            res.json({swatch: swatch});
-        });
-    });
+function search(req, res, next) {
+    var color = req.color;
+    var type = req.type;
+    Swatch.find({color: color} || {type: type})
+    .then(swatches => res.json({swatches: swatches}));
 }
 
 function destroy(req, res) {

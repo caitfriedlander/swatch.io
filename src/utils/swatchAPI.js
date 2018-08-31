@@ -74,6 +74,15 @@ function info() {
     .then((info) => info);
 }
 
+function search() {
+    return fetch(BASE_URL, getAuthRequestOptions('GET'))
+    .then(res => {
+        if (res.ok) return res.json();
+        throw new Error('Something Went Wrong');
+    })
+    .then(({ swatches }) => swatches);
+}
+
 function getAuthRequestOptions(method) {
     return {
         method,
@@ -89,8 +98,9 @@ export default {
     index,
     create,
     show,
+    update,
     swatch,
     info,
-    update,
+    search,
     delete: destroy
 };

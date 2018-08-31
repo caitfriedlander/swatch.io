@@ -70,6 +70,10 @@ class NewSwatchForm extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault();
+		if (this.state.color === '' || this.state.type === '' || this.state.quantity === '') {
+			alert('Please fill out Color, Quantity, type and incluide an image.');
+			return; 
+		}
 		swatchAPI.create(this.state)
 		.then(swatch => {
 			this.props.handleCreateSwatch(swatch);
@@ -129,7 +133,7 @@ class NewSwatchForm extends Component {
 						</div>
 						<div className="NewSwatchForm-Group">
 							<label>Type: </label>
-							<select className="form-control" selected="selected" value={this.state.type} onChange={(e) => this.handleChange('type', e)} >
+							<select className="form-control" selected="selected" value={this.state.type} onChange={(e) => this.handleChange('type', e)} required>
 								<option value="null"></option>
 								{this.state.types.map(t => (
 									<option key={t} value={t}>{t}</option>
@@ -138,7 +142,7 @@ class NewSwatchForm extends Component {
 						</div>
 						<div className="NewSwatchForm-Group">
 							<label>Color: </label>
-							<select className="form-control" selected="selected" value={this.state.color} onChange={(e) => this.handleChange('color', e)} >
+							<select className="form-control" selected="selected" value={this.state.color} onChange={(e) => this.handleChange('color', e)} required>
 								<option value="null"></option>
 								{this.state.colors.map(c => (
 									<option key={c} value={c}>{c}</option>
@@ -146,9 +150,8 @@ class NewSwatchForm extends Component {
 							</select>
 						</div>
 						<div className="NewSwatchForm-Group">
-							{/* <input type="text" className="form-control" placeholder="Quantity" value={this.state.quantity} onChange={(e) => this.handleChange('quantity', e)} /> */}
 							<label>Qunatity: </label>
-							<select className="form-control" selected="selected" value={this.state.quantity} onChange={(e) => this.handleChange('quantity', e)} >
+							<select className="form-control" selected="selected" value={this.state.quantity} onChange={(e) => this.handleChange('quantity', e)} required>
 								<option value="null"></option>
 								{this.state.quantities.map(q => (
 									<option key={q} value={q}>{q}</option>

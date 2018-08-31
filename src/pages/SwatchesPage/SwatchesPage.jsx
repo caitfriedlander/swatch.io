@@ -2,13 +2,30 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './SwatchesPage.css';
 import NavBar from '../../components/NavBar/NavBar';
+import swatchAPI from '../../utils/swatchAPI';
 
 class SwatchesPage extends React.Component {
     
     constructor(props) {
         super(props);
         this.state = {
+            colors: [],
+			types: []
         }
+    }
+
+    updateMessage = (msg) => {
+        this.setState({message: msg});
+    }
+
+    componentDidMount () {
+        swatchAPI.info().then(info => {
+			this.setState({
+				colors: info.colors,
+				types: info.types,
+				quantities: info.quantities	
+            });
+        });
     }
 
     render() {
@@ -20,8 +37,24 @@ class SwatchesPage extends React.Component {
                 />
                 <div className="SwatchesPage">    
                     <div className="SwatchesPage-DDs">
-                        <Link to='#' className="dd">COLOR</Link>
-                        <Link to='#' className="dd">TYPE</Link>
+                            <div>
+                                <label>Color: </label>
+                                <select className="form-control" selected="selected" value={this.props.filterColor} onChange={(e) => this.props.handleSetFilter('filterColor', e.target.value)} required>
+                                    <option value="">All</option>
+                                    {this.state.colors.map(c => (
+                                        <option key={c} value={c}>{c}</option>
+                                    ))}
+                                </select>
+                            </div>
+                            <div >
+                                <label>Type: </label>
+                                <select className="form-control" selected="selected" value={this.props.filterType} onChange={(e) => this.props.handleSetFilter('filterType', e.target.value)} required>
+                                    <option value="">All</option>
+                                    {this.state.types.map(t => (
+                                        <option key={t} value={t}>{t}</option>
+                                    ))}
+                                </select>
+                            </div>
                     </div>
                     <div className="SwatchesPage-Swatches">
                         {this.props.swatches.map(s => (
