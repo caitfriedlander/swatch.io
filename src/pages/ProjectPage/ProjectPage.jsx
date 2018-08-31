@@ -8,15 +8,26 @@ class ProjectPage extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        name: '',
-        swatches: []
+            id: '',
+            name: '',
+            swatches: []
+        }
     }
-}
+
+    handleDelete = () => {
+        console.log(this.props)
+        projectAPI.delete(this.state.id)
+        .then(() => {
+            this.props.handleDeleteProject(this.state.id);
+            this.props.history.push('/');
+        });
+    }
 
   componentDidMount() {
       var projectid = this.props.match.params.project_id;
       projectAPI.show(projectid).then((json) => {
           this.setState({
+              id: json._id,
               name: json.name,
               swatches: [json.swatches]
           })
@@ -67,7 +78,7 @@ class ProjectPage extends Component {
                     </div>
                 </div>
                 <div className="ProjectPage-Buttons">
-                    <Link to='#' className="btn">DELETE</Link>
+                    <Link to='/' className="btn btn-delete" onClick={this.handleDelete}>DELETE</Link>
                 </div>
             </div>
         )

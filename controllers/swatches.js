@@ -50,9 +50,17 @@ function info(req, res, next) {
 }
 
 function update(req, res, next) {
-    Swatch.findByIdAndUpdate(req.params.id, req.body, (err, swatch) => {
-        if (err) return next(err);
-        res.json(swatch);
+    Swatch.findById(req.params.id, (err, swatch) => {
+        if(err) return next(err);
+        swatch.color = req.params.color;
+        swatch.type = req.params.type;
+        swatch.quantity = req.params.quantity;
+        swatch.notes = req.params.notes;
+        swatch.image = req.params.image;
+        swatch.save((err, swatch) => {
+            if(err) return next(err);
+            res.json({swatch: swatch});
+        });
     });
 }
 

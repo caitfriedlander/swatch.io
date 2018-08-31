@@ -46,8 +46,15 @@ function addSwatch(projectid, swatchid) {
     .then(({project}) => project);
 }
 
-function destroy(project) {
-
+function destroy(projectid) {
+    var options = getAuthRequestOptions('DELETE');
+    return fetch(`${BASE_URL}/${projectid}`, options)
+    .then(res => {
+        console.log('Project deleted');
+    })
+    .catch(err => {
+        console.error(err);
+    });
 }
 
 function getAuthRequestOptions(method) {

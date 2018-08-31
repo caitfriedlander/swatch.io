@@ -31,6 +31,16 @@ function show(swatchid) {
     .then(({swatch}) => swatch);
 }
 
+function update(swatchid) {
+    var options = getAuthRequestOptions('PUT');
+    return fetch(`${BASE_URL}/${swatchid}`, options)
+    .then(res => {
+        if (res.ok) return res.json();
+        throw new Error('Something Went Wrong');
+    })
+    .then(({swatch}) => swatch);
+}
+
 function destroy(swatchid, projectid) {
     var options = getAuthRequestOptions('DELETE');
     if (projectid) options.body = JSON.stringify({projectId: projectid});
@@ -80,5 +90,6 @@ export default {
     show,
     swatch,
     info,
+    update,
     delete: destroy
 };

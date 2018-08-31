@@ -15,8 +15,8 @@ class SwatchPage extends Component {
           quantity: '',
           notes: '',
           image: '',
-          projectId: '',
           message: '',
+          projectId: '',
           project: null
       }
     }
@@ -51,8 +51,8 @@ class SwatchPage extends Component {
                 quantity: json.quantity,
                 notes: json.notes,
                 image: json.image
-            })
-        })
+            });
+        });
     }
     
     render() {
@@ -97,7 +97,7 @@ class SwatchPage extends Component {
                     </form>}
                 </div>
                 <div className="SwatchPage-Buttons">
-                    <Link to='#' className="btn btn-edit">EDIT</Link>
+                    <Link to={`/swatches/${this.state.id}/edit`} className="btn btn-edit">EDIT</Link>
                     <Link to='/' className="btn btn-delete" onClick={this.handleDelete}>DELETE</Link>
                 </div>
             </div>

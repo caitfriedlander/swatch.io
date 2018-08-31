@@ -1,5 +1,5 @@
 var Project = require('../models/project');
-var User = require('../models/user');
+
 module.exports = {
     index,
     create,
@@ -40,8 +40,11 @@ function addSwatch(req, res, next) {
     });
 }
 
-function destroy(req, res, next) {
-
+function destroy(req, res) {
+    Project.findByIdAndRemove(req.params.id, (err, swatch) => {
+        if (err) return next(err);
+        res.json('Removed Project');
+    });
 }
 
 /*----- Helper Functions -----*/

@@ -18,6 +18,7 @@ import ProjectPage from '../ProjectPage/ProjectPage';
 import NewSwatchPage from '../NewSwatchPage/NewSwatchPage';
 import SwatchesPage from '../SwatchesPage/SwatchesPage';
 import SwatchPage from '../SwatchPage/SwatchPage';
+import EditSwatchPage from '../EditSwatchPage/EditSwatchPage';
 
 class App extends Component {
   constructor(props) {
@@ -82,9 +83,18 @@ class App extends Component {
   handleDeleteSwatch = (swatchId) => {
 	var newSwatches = [...this.state.swatches];
 	var swatchIdx = newSwatches.findIndex(s => s._id === swatchId);
-	newSwatches.splice(swatchId, 1);
+	newSwatches.splice(swatchIdx, 1);
     this.setState({
       swatches: newSwatches
+    });
+  }
+
+  handleDeleteProject = (projectId) => {
+	var newProjects = [...this.state.projects];
+	var projectIdx = newProjects.findIndex(p => p._id === projectId);
+	newProjects.splice(projectIdx, 1);
+    this.setState({
+      projects: newProjects
     });
   }
 
@@ -139,7 +149,8 @@ class App extends Component {
                 userService.getUser() ?
                 <ProjectPage 
                   user={this.state.user}
-                  handleLogout={this.handleLogout}
+				  handleLogout={this.handleLogout}
+				  handleDeleteProject={this.handleDeleteProject}
                   {...props}
                 />
                 :
@@ -151,6 +162,16 @@ class App extends Component {
                   user={this.state.user}
                   handleLogout={this.handleLogout}
                   handleCreateSwatch={this.handleCreateSwatch}
+                  {...props}
+                />
+                :
+                <Redirect to='/login' />
+              )}/>
+              <Route exact path='/swatches/:swatch_id/edit' render={(props) => (
+                userService.getUser() ?
+                <EditSwatchPage 
+                  user={this.state.user}
+                  handleLogout={this.handleLogout}
                   {...props}
                 />
                 :
