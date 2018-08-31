@@ -48,9 +48,11 @@ class ProjectPage extends Component {
                 <div className="ProjectPage-Swatches">
                     { this.state.swatches.map(s => {
                             return <div className="ProjectPage-Swatch">
-                                {s.image ? <img className="img" alt="preview" src={s.image}></img> : <img className="img" alt="preview" src="https://i.imgur.com/FEPUuCj.png"></img>}
-                                <h4>{s.type} {s.color}</h4>
-                                <p>{s.quantity}</p>
+                                <Link to={`/swatches/${s._id}`} key={s._id}>
+                                    {s.image ? <img className="img" alt="preview" src={s.image}></img> : <img className="img" alt="preview" src="https://i.imgur.com/FEPUuCj.png"></img>}
+                                    <h4>{s.type} {s.color}</h4>
+                                    <p>{s.quantity}</p>
+                                </Link>
                             </div>
                         })
                     }

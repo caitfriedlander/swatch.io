@@ -43,23 +43,27 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    height: 150px;
-    width: 150px;
+    height: 190px;
+    width: 100px;
     margin: 5px;
 }
+.ProjectPage-Swatch > a {
+    text-decoration: none;
+    text-align: center;
+}
 
-.ProjectPage-Swatch > .img {
+.ProjectPage-Swatch > a > .img {
     height: 100px;
     width: 100px;
     background-color: aqua;
 }
 
-.ProjectPage-Swatch > h4 {
+.ProjectPage-Swatch > a > h4 {
     margin: 5px auto -10px;
     color: var(--primary-text);
 }
 
-.ProjectPage-Swatch > p {
+.ProjectPage-Swatch > a > p {
     margin: 5px auto;
     color: var(--primary-text);
 }

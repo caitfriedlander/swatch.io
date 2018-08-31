@@ -130,7 +130,7 @@ class EditSwatchForm extends Component {
 	render() {
 		return (
 			<React.Fragment>
-				{this.state.ShowCamera && 
+				{this.state.ShowCamera ? 
 					<div className="EditSwatchForm-CameraBox">
 						<Camera
 							className="EditSwatchForm-Camera"
@@ -138,55 +138,56 @@ class EditSwatchForm extends Component {
 							onTakePhoto = { (dataUri) => { this.onTakePhoto(dataUri); } }
 						/>
 					</div>
-				}
-				<div className="EditSwatchForm">
-				<form className="EditSwatchForm-Form" onSubmit={this.handleSubmit} >
-					<div className="EditSwatchForm-ImgGroup">
-					<div className="EditSwatchForm-ImgBtn">
-						<Link to="#"><img src="https://cdn0.iconfinder.com/data/icons/love-and-romance-1-5/24/7-512.png" alt="camera" className="EditSwatchForm-ShowCamera" onClick={this.handleCameraLaunch}/></Link>
-						<h4>Upload an Image</h4>
-					</div>
-					<div className="EditSwatchForm-Preview">{this.state.image ? <img className="EditSwatchForm-PreviewImage" alt="preview" src={this.state.image}></img> : <img className="EditSwatchForm-PreviewImage" alt="preview" src="https://i.imgur.com/FEPUuCj.png"></img>}</div>
-					</div>
-					<div className="EditSwatchForm-Group">
-						<label>Type: </label>
-						<select className="form-control" selected="selected" value={this.state.type} onChange={(e) => this.handleChange('type', e)} >
-							<option value="null"></option>
-							{this.state.types.map(t => (
-								<option key={t} value={t}>{t}</option>
-							))}
-						</select>
-					</div>
-					<div className="EditSwatchForm-Group">
-						<label>Color: </label>
-						<select className="form-control" selected="selected" value={this.state.color} onChange={(e) => this.handleChange('color', e)} >
-							<option value="null"></option>
-							{this.state.colors.map(c => (
-								<option key={c} value={c}>{c}</option>
-							))}
-						</select>
-					</div>
-					<div className="EditSwatchForm-Group">
-						{/* <input type="text" className="form-control" placeholder="Quantity" value={this.state.quantity} onChange={(e) => this.handleChange('quantity', e)} /> */}
-						<label>Qunatity: </label>
-						<select className="form-control" selected="selected" value={this.state.quantity} onChange={(e) => this.handleChange('quantity', e)} >
-							<option value="null"></option>
-							{this.state.quantities.map(q => (
-								<option key={q} value={q}>{q}</option>
-							))}
-						</select>
-					</div>
-					<div className="EditSwatchForm-Group">
-						<input type="text" className="form-control" placeholder="Notes" value={this.state.notes} onChange={(e) => this.handleChange('notes', e)} />
-					</div>
-					<div className="EditSwatchForm-Group">
-						<div className="EditSwatchForm-Buttons">
-							<button type="submit" className="btn default" disabled={this.isFormInvalid()}>SAVE SWATCH</button>
-							<Link to={`/swatches/${this.state.id}`} className="btn cancel">CANCEL</Link>
+				:
+					<div className="EditSwatchForm">
+					<form className="EditSwatchForm-Form" onSubmit={this.handleSubmit} >
+						<div className="EditSwatchForm-ImgGroup">
+						<div className="EditSwatchForm-ImgBtn">
+							<Link to="#"><img src="https://cdn0.iconfinder.com/data/icons/love-and-romance-1-5/24/7-512.png" alt="camera" className="EditSwatchForm-ShowCamera" onClick={this.handleCameraLaunch}/></Link>
+							<h4>Upload an Image</h4>
 						</div>
-					</div>
-				</form>
-			</div>
+						<div className="EditSwatchForm-Preview">{this.state.image ? <img className="EditSwatchForm-PreviewImage" alt="preview" src={this.state.image}></img> : <img className="EditSwatchForm-PreviewImage" alt="preview" src="https://i.imgur.com/FEPUuCj.png"></img>}</div>
+						</div>
+						<div className="EditSwatchForm-Group">
+							<label>Type: </label>
+							<select className="form-control" selected="selected" value={this.state.type} onChange={(e) => this.handleChange('type', e)} >
+								<option value="null"></option>
+								{this.state.types.map(t => (
+									<option key={t} value={t}>{t}</option>
+								))}
+							</select>
+						</div>
+						<div className="EditSwatchForm-Group">
+							<label>Color: </label>
+							<select className="form-control" selected="selected" value={this.state.color} onChange={(e) => this.handleChange('color', e)} >
+								<option value="null"></option>
+								{this.state.colors.map(c => (
+									<option key={c} value={c}>{c}</option>
+								))}
+							</select>
+						</div>
+						<div className="EditSwatchForm-Group">
+							{/* <input type="text" className="form-control" placeholder="Quantity" value={this.state.quantity} onChange={(e) => this.handleChange('quantity', e)} /> */}
+							<label>Qunatity: </label>
+							<select className="form-control" selected="selected" value={this.state.quantity} onChange={(e) => this.handleChange('quantity', e)} >
+								<option value="null"></option>
+								{this.state.quantities.map(q => (
+									<option key={q} value={q}>{q}</option>
+								))}
+							</select>
+						</div>
+						<div className="EditSwatchForm-Group">
+							<input type="text" className="form-control" placeholder="Notes" value={this.state.notes} onChange={(e) => this.handleChange('notes', e)} />
+						</div>
+						<div className="EditSwatchForm-Group">
+							<div className="EditSwatchForm-Buttons">
+								<button type="submit" className="btn default" disabled={this.isFormInvalid()}>SAVE SWATCH</button>
+								<Link to={`/swatches/${this.state.id}`} className="btn cancel">CANCEL</Link>
+							</div>
+						</div>
+					</form>
+				</div>
+				}
 			</React.Fragment>
 		);
 	}
