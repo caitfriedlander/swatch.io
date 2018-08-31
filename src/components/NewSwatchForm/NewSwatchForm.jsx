@@ -52,10 +52,9 @@ class NewSwatchForm extends Component {
 		})
 	}
 
-	onTakePhoto (e, file) {
-		e.preventDefault();
-		// var blob = this.dataURItoBlob(dataUri);
-		// var file = this.blobToFile(blob);
+	onTakePhoto (dataUri) {
+		var blob = this.dataURItoBlob(dataUri);
+		var file = this.blobToFile(blob);
 		uploadFile(file, config)
 		.then((data) => {
 			console.log(data.location)
@@ -109,19 +108,15 @@ class NewSwatchForm extends Component {
 		return (
 			<React.Fragment>
 				{this.state.ShowCamera ?  
-					// <div className="NewSwatchForm-CameraBox">
-					// 	<Camera
-					// 		className="NewSwatchForm-Camera"
-					// 		onCameraError={(error) => {alert(error)}}
-					// 		idealFacingMode={FACING_MODES.ENVIRONMENT}
-					// 		idealResolution={{width: 400, height: 400}}
-					// 		onTakePhoto={ (dataUri) => { this.onTakePhoto(dataUri); } }
-					// 	/>
-					// </div>
-					<form onSubmit={this.onTakePhoto}>
-						<input type="file" name="image" accept="image/*" capture="camera"></input>
-						<button type="submit">Submit</button>
-					</form>
+					<div className="NewSwatchForm-CameraBox">
+						<Camera
+							className="NewSwatchForm-Camera"
+							onCameraError={(error) => {alert(error)}}
+							idealFacingMode={FACING_MODES.ENVIRONMENT}
+							idealResolution={{width: 400, height: 400}}
+							onTakePhoto={ (dataUri) => { this.onTakePhoto(dataUri); } }
+						/>
+					</div>
 					:
 					<div className="NewSwatchForm">
 					<form className="NewSwatchForm-Form" onSubmit={this.handleSubmit} >
