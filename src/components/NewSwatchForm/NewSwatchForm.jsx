@@ -111,7 +111,8 @@ class NewSwatchForm extends Component {
 					<div className="NewSwatchForm-CameraBox">
 						<Camera
 							className="NewSwatchForm-Camera"
-							idealResolution={{width: window.innerWidth, height: window.innerWidth }}
+							// idealResolution={{width: window.innerWidth, height: window.innerWidth }}
+							onCameraError={(error) => {alert(error)}}
 							onTakePhoto = { (dataUri) => { this.onTakePhoto(dataUri); } }
 						/>
 					</div>
