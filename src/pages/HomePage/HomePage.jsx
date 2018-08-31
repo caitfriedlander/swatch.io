@@ -16,7 +16,7 @@ class HomePage extends React.Component {
                     user={this.props.user}
                     handleLogout={this.props.handleLogout}
                 />
-                <h2 className="HomePage-BigText">SWATCHES <span>({this.props.swatches.length})</span></h2>
+                <h2 className="HomePage-BigText">SWATCHES: <span>({this.props.swatches.length})</span></h2>
                 <div className="HomePage-Swatches">
                     {this.props.swatches.slice(0, 6).map(s => (
                         <div key={s._id}>
