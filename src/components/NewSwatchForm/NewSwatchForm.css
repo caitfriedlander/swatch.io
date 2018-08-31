@@ -11,11 +11,11 @@
 }
 
 .react-html5-camera-photo {
-    display: flex;
+    /* display: flex;
     justify-content: flex-start;
-    align-items: center;
-    height: 360px;
-    width: 360px;
+    align-items: center; */
+    /* height: 360px;
+    width: 360px; */
 }
 
 .react-html5-camera-photo {
