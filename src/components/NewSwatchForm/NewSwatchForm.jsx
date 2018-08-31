@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import swatchAPI from '../../utils/swatchAPI';
-import Camera from 'react-html5-camera-photo';
+import Camera, {FACING_MODES} from 'react-html5-camera-photo';
 import { uploadFile } from '../../lib/ReactS3';
 import 'react-html5-camera-photo/build/css/index.css';
 import './NewSwatchForm.css';
@@ -108,14 +108,19 @@ class NewSwatchForm extends Component {
 		return (
 			<React.Fragment>
 				{this.state.ShowCamera ?  
-					<div className="NewSwatchForm-CameraBox">
-						<Camera
-							className="NewSwatchForm-Camera"
-							// idealResolution={{width: window.innerWidth, height: window.innerWidth }}
-							onCameraError={(error) => {alert(error)}}
-							onTakePhoto = { (dataUri) => { this.onTakePhoto(dataUri); } }
-						/>
-					</div>
+					// <div className="NewSwatchForm-CameraBox">
+					// 	<Camera
+					// 		className="NewSwatchForm-Camera"
+					// 		onCameraError={(error) => {alert(error)}}
+					// 		idealFacingMode={FACING_MODES.ENVIRONMENT}
+					// 		idealResolution={{width: 400, height: 400}}
+					// 		onTakePhoto={ (dataUri) => { this.onTakePhoto(dataUri); } }
+					// 	/>
+					// </div>
+					<form onSubmit={this.onTakePhoto}>
+						<input type="file" name="image" accept="image/*" capture="camera"></input>
+						<button type="submit">Submit</button>
+					</form>
 					:
 					<div className="NewSwatchForm">
 					<form className="NewSwatchForm-Form" onSubmit={this.handleSubmit} >

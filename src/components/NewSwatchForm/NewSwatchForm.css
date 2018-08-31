@@ -11,16 +11,11 @@
 }
 
 .react-html5-camera-photo {
-    /* display: flex;
+    display: flex;
     justify-content: flex-start;
-    align-items: center; */
-    /* height: 360px;
-    width: 360px; */
+    align-items: center;
 }
 
-.react-html5-camera-photo {
-    bottom: 0;
-}
 
 .NewSwatchForm-Form {
     display: flex;
