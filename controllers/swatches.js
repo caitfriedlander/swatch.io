@@ -57,13 +57,13 @@ function update(req, res, next) {
 }
 
 function destroy(req, res) {
-    Swatch.findByIdAndRemove(req.params.swatchId, req.body, (err, swatch) => {
+    Swatch.findByIdAndRemove(req.params.id, (err, swatch) => {
         if (err) return next(err);
         if (req.body.projectId) {
             Project.findById(req.body.projectId, (err, project) => {
                 if (err) return next(err);
-                project.swatches.remove(swatchId);
-                console.log(swatch)
+                project.swatches.remove(req.params.id);
+                console.log(req.params.id);
                 res.json('Removed Swatch');
             });
         } else {

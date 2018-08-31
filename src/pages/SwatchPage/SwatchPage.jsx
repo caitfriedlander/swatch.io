@@ -56,6 +56,8 @@ class SwatchPage extends Component {
     }
     
     render() {
+        var projects = this.props.projects;
+        var project = (projects ? projects.find(p => p.swatches.includes(this.state.id)) : null) || this.state.project;
         return (
             <div className="SwatchPage">
                 <NavBar 
@@ -73,18 +75,20 @@ class SwatchPage extends Component {
                 </div>
                 <div className="SwatchPage-ProjectsList">
                     <div className="SwatchPage-Notes">
-                        <h2>NOTES</h2>
-                        <p>{this.state.notes}</p>
+                            <h2>NOTES</h2>
+                            <p>{this.state.notes}</p>
                     </div>
-                    { this.state.project ? 
-                    <h2>{this.state.project.name}</h2> 
+                    {  project ? 
+                    <div className="SwatchPage-Notes Second">
+                        <h2>PROJECT: {project.name}</h2> 
+                    </div>
                     :
                     <form className="SwatchPage-Form" onSubmit={(e) => this.handleAddToProject(e)}>
                         <div className="SwatchPage-Group">
                             <h2>ADD TO PROJECT</h2>
                             <select className="form-control" selected="selected" value={this.state.projectId} onChange={(e) => this.handleChange('projectId', e)} >
                                 <option value="null"></option>
-                                {this.props.projects.map(p => (
+                                {projects.map(p => (
                                     <option key={p._id} value={p._id}>{p.name}</option>
                                 ))}
                             </select>
