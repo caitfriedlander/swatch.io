@@ -52,9 +52,10 @@ class NewSwatchForm extends Component {
 		})
 	}
 
-	onTakePhoto (dataUri) {
-		var blob = this.dataURItoBlob(dataUri);
-		var file = this.blobToFile(blob);
+	onTakePhoto (e, file) {
+		e.preventDefault();
+		// var blob = this.dataURItoBlob(dataUri);
+		// var file = this.blobToFile(blob);
 		uploadFile(file, config)
 		.then((data) => {
 			console.log(data.location)
