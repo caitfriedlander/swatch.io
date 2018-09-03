@@ -10,3 +10,10 @@
     background-repeat: no-repeat;
     background-size: 100vh;
 }
+
+@media only screen  and (min-width : 900px) {
+    .SignupPage {
+        background-repeat: repeat-x;
+        background-position: center;
+    }
+}

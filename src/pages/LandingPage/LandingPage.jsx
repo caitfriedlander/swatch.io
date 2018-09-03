@@ -8,9 +8,9 @@ const LandingPage = (props) => {
 
     return(
         <div className="LandingPage">
-            <RibbonHeader />
-            <LandingCard />
-            <LandingButtons />
+                <RibbonHeader />
+                <LandingCard />
+                <LandingButtons />
         </div>
     );
 }

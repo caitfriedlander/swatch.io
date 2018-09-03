@@ -13,7 +13,7 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    color: green;
+    color: var(--primary-green);
     margin-top: 40px;
     margin-bottom: 40px;
 }
@@ -40,7 +40,7 @@
 .SwatchPage-ProjectsList {
     height: 60%;
     width: 100vw;
-    background-color: green;
+    background-color: var(--primary-green);
     border-radius: 5px;
     color: var(--primary-text);
     display: flex;
@@ -87,4 +87,28 @@
     display: inline-block;
 }
 
+@media only screen  and (min-width : 900px) {
 
+    .SwatchPage-Header {
+        width: 50vw;
+    }
+    .SwatchPage-ProjectsList {
+        width: 50vw;
+    }
+
+    .SwatchPage-Notes {
+        width: 90%;
+    }
+
+    .SwatchPage-Group > select {
+        width: 45vw;
+    } 
+
+    .SwatchPage-Group {
+        width: 50vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    } 
+}

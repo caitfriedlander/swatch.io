@@ -64,3 +64,24 @@
     background-color: rgb(150, 46, 71);
     display: inline-block;
 }
+
+@media only screen  and (min-width : 900px) {
+
+    .SignupForm-Form {
+        display: flex;
+        height: 60%;
+        width: 90%;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: -80px;
+    }
+
+    .SignupForm {
+        height: 50%;
+        width: 50%;
+    }
+
+    .SignupForm-Headder {
+        margin-top: -20vh;
+    }
+}

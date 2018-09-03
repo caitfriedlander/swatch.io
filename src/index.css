@@ -1,6 +1,8 @@
 :root {
   --primary-text: #dddeda;
   --primary-bg: salmon;
+  --primary-green: rgb(99, 155, 99);
+  --primary-red: rgb(167, 42, 50);
 }
 
 *, *::before, *::after {

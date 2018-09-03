@@ -3,7 +3,7 @@
     flex-direction: column;
     background-color: var(--primary-bg);
     height: 40vh;
-    width: 100vw;
+    width: 80vw;
     padding: 20px;
     color: var(--primary-text);
     text-align: center;
@@ -44,10 +44,16 @@
 }
 
 .NewProjectForm-Buttons > .default {
-    background-color: rgb(60, 162, 60);
+    background-color: var(--primary-green);
 }
 
 .NewProjectForm-Buttons > a.btn.cancel {
-    background-color: rgb(150, 46, 71);
+    background-color:var(--primary-red);
     display: inline-block;
+}
+
+@media only screen  and (min-width : 900px) {
+    .NewProjectForm-Form {
+        width: 50vw;
+    }
 }

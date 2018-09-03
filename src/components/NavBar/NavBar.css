@@ -17,3 +17,11 @@
     color: var(--primary-text);
     margin: 0 10px;
 }
+
+
+@media only screen  and (min-width : 900px) {
+    .NavBar-Nav {
+        width: 100%;
+        justify-content: space-evenly;
+    }
+}

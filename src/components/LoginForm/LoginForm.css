@@ -41,10 +41,16 @@
 }
 
 .LoginForm-Buttons > .default {
-    background-color: rgb(60, 162, 60);
+    background-color: var(--primary-green);
 }
 
 .LoginForm-Buttons > a.btn.cancel {
-    background-color: rgb(150, 46, 71);
+    background-color: var(--primary-red);
     display: inline-block;
+}
+
+@media only screen  and (min-width : 900px) {
+    .LoginForm {
+        width: 50vw;
+    }
 }

@@ -38,8 +38,8 @@ class SwatchesPage extends React.Component {
                 <div className="SwatchesPage">    
                     <div className="SwatchesPage-DDs">
                             <div>
-                                <label>Color: </label>
-                                <select className="form-control" selected="selected" value={this.props.filterColor} onChange={(e) => this.props.handleSetFilter('filterColor', e.target.value)} required>
+                                <label className="SwatchesPage-DDLable">Color: </label>
+                                <select className="SwatchesPage-DD" selected="selected" value={this.props.filterColor} onChange={(e) => this.props.handleSetFilter('filterColor', e.target.value)} required>
                                     <option value="">All</option>
                                     {this.state.colors.map(c => (
                                         <option key={c} value={c}>{c}</option>
@@ -47,8 +47,8 @@ class SwatchesPage extends React.Component {
                                 </select>
                             </div>
                             <div >
-                                <label>Type: </label>
-                                <select className="form-control" selected="selected" value={this.props.filterType} onChange={(e) => this.props.handleSetFilter('filterType', e.target.value)} required>
+                                <label className="SwatchesPage-DDLable">Type: </label>
+                                <select className="SwatchesPage-DD" selected="selected" value={this.props.filterType} onChange={(e) => this.props.handleSetFilter('filterType', e.target.value)} required>
                                     <option value="">All</option>
                                     {this.state.types.map(t => (
                                         <option key={t} value={t}>{t}</option>

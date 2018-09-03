@@ -24,6 +24,26 @@
     display: inline-block;
 }
 
+.SwatchesPage-DDLable {
+    font-size: 20px;
+    color: var(--primary-bg);
+}
+
+.SwatchesPage-DD {
+    padding: 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    border: none;
+    background-color: white;
+    border: 1px solid var(--primary-text);
+    color: green;
+    display: inline-block;
+}
+
 .SwatchesPage-Swatches {
     display: flex;
     justify-content: space-around;

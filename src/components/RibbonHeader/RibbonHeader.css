@@ -26,3 +26,9 @@ body {
  .Ribbon > h1 {
       text-align: center;
   }
+
+@media only screen  and (min-width : 900px) {
+    .RibbonHeader {
+        width: 50vw;
+    }
+}

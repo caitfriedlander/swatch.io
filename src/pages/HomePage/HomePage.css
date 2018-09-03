@@ -55,7 +55,7 @@
     width: 300px;
     margin: 10px auto;
     color: var(--primary-text);
-    background-color: green;
+    background-color: var(--primary-green);
     display: inline-block;
 }
 
@@ -77,4 +77,10 @@
 
 .HomePage > h2 > span {
     color: black;
+}
+
+@media only screen  and (min-width : 900px) {
+    .Project-btn {
+        width: 600px;
+    }
 }

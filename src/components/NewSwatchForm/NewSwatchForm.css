@@ -20,7 +20,7 @@
 .NewSwatchForm-Form {
     display: flex;
     flex-direction: column;
-    background-color: rgb(60, 162, 60);
+    background-color: var(--primary-green);
     height: 80vh;
     width: 100vw;
     padding: 20px;
@@ -102,6 +102,22 @@
 }
 
 .NewSwatchForm-Buttons > a.btn.cancel {
-    background-color: rgb(150, 46, 71);
+    background-color:var(--primary-red);
     display: inline-block;
+}
+
+@media only screen  and (min-width : 900px) {
+    .NewSwatchForm-Form {
+        width: 50vw;
+        height: 70vh;
+    }
+
+    .NewSwatchForm-Buttons { 
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        margin: 40px 0;
+    }
 }

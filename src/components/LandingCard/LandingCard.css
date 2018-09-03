@@ -18,3 +18,9 @@
     text-align: center;
     color: #dddeda;
 }
+
+@media only screen  and (min-width : 900px) {
+    .LandingCard {
+        width: 50vw;
+    }
+}
