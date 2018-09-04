@@ -8,7 +8,7 @@ Whether for personal or business purposes, anyone who sews frequently accumulate
 **Swatch.io** allows a user to create a searchable digital library of fabric swatches (including a photo, details about the type and color, and quantity). Additionally a user can create projects which are ways of further organizing your fabric. **Swatch.io** is designed primarily to be used on mobile devices for maximum portability.
 
 ## Getting Started
-###[Try it out on Heroku!](https://swatch-io.herokuapp.com/)
+### [Try it out on Heroku!](https://swatch-io.herokuapp.com/)
 Demo account email: demo@email.com
 Demo account password: demo
 
