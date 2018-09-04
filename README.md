@@ -10,6 +10,7 @@ Whether for personal or business purposes, anyone who sews frequently accumulate
 ## Getting Started
 ### [Try it out on Heroku!](https://swatch-io.herokuapp.com/)
 Demo account email: demo@email.com
+
 Demo account password: demo
 
 ![S3](https://i.imgur.com/5Te86RH.png)             |  ![S4](https://i.imgur.com/80G8AN0.png)
