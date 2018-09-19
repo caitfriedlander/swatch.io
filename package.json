@@ -1,6 +1,9 @@
 {
   "name": "swatch.io",
   "version": "0.1.0",
+  "engines": {
+    "node": "6.7.0"
+  },
   "private": true,
   "dependencies": {
     "aws-s3": "^1.5.5",
