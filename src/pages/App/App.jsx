@@ -164,8 +164,8 @@ class App extends Component {
                 userService.getUser() ?
                 <ProjectPage 
                   user={this.state.user}
-				  handleLogout={this.handleLogout}
-				  handleDeleteProject={this.handleDeleteProject}
+                  handleLogout={this.handleLogout}
+                  handleDeleteProject={this.handleDeleteProject}
                   {...props}
                 />
                 :
@@ -193,20 +193,20 @@ class App extends Component {
                 <Redirect to='/login' />
               )}/>
               <Route exact path='/swatches' render={(props) => {
-				var swatches = this.getFilteredSwatches();
-                return userService.getUser() ?
-					<SwatchesPage 
-						user={this.state.user}
-						swatches={swatches}
-						loadSwatches={this.loadSwatches}
-						handleLogout={this.handleLogout}
-						handleSetFilter={this.handleSetFilter}
-						filterColor={this.state.filterColor}
-						filterType={this.state.filterType}
-						{...props}
-					/>
-                :
-					<Redirect to='/login' />
+                var swatches = this.getFilteredSwatches();
+                        return userService.getUser() ?
+                  <SwatchesPage 
+                    user={this.state.user}
+                    swatches={swatches}
+                    loadSwatches={this.loadSwatches}
+                    handleLogout={this.handleLogout}
+                    handleSetFilter={this.handleSetFilter}
+                    filterColor={this.state.filterColor}
+                    filterType={this.state.filterType}
+                    {...props}
+                  />
+              :
+                <Redirect to='/login' />
               }}/>
               <Route exact path='/swatches/:swatch_id' render={(props) => (
                 userService.getUser() ?
@@ -214,8 +214,8 @@ class App extends Component {
                   user={this.state.user}
                   projects={this.state.projects}
                   swatch={this.state.swatches.find(s => s._id === props.match.params.swatch_id)}
-				  handleLogout={this.handleLogout}
-				  handleDeleteSwatch={this.handleDeleteSwatch}
+                  handleLogout={this.handleLogout}
+                  handleDeleteSwatch={this.handleDeleteSwatch}
                   {...props}
                 />
                 :

@@ -4,11 +4,6 @@ import './HomePage.css';
 import NavBar from '../../components/NavBar/NavBar';
 class HomePage extends React.Component {
 
-    ComponentDidMount(props) {
-        // this.props.loadProjects();
-        // this.props.loadSwatches();
-        // this.setState({swatches: this.props.swatches, projects: this.props.projects})
-    }
     render() {
         return(
             <div className="HomePage">
